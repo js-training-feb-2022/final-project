@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { catchPokemon } from '../redux/actions';
+import { catchPokemon, releasePokemon } from '../redux/actions';
 import { PokemonCard } from '../components/PokemonCard/PokemonCard';
 export function PokemonCardContainer({ id, name, imagePath }) {
-  const status = useSelector((state) => state.caught.find((ids) => ids == id));
-  const [pokemonStatus, setPokemonStatus] = useState(status);
+  const caughtList = useSelector((state) => state.caught);
+  const status = caughtList.find((ids) => ids == id);
   const dispatch = useDispatch();
-  function handleOnClick(id) {
+  function catchPokemonHandle(id) {
     dispatch(catchPokemon(id));
   }
-  // async function loadPokemonList() {
-  //   const response = await getPokemonList();
-  //   console.log(response);
-  //   setPokemonStatus(response);
-  // }
-  // useEffect(() => loadPokemonList(), []);
+  function releasePokemonHandler(id) {
+    console.log('release', id);
+    const res = caughtList.filter((index) => index != id);
+    console.log(res);
+    dispatch(releasePokemon(res));
+  }
+  function handleOnClick(id) {
+    if (status) {
+      releasePokemonHandler(id);
+    } else catchPokemonHandle(id);
+  }
   return (
     <PokemonCard
       id={id}
       name={name}
       imagePath={imagePath}
+      status={status ? 'Release' : 'Catch'}
       onClick={() => handleOnClick(id)}
     />
   );
