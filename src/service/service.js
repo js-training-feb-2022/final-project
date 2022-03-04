@@ -1,4 +1,8 @@
 import axios from 'axios';
-export function getPokemonList() {
-  const response = axios.get;
+const HTTP = axios.create({
+  baseURL: 'https://pokeapi.co/api/v2/',
+});
+export async function getPokemonList() {
+  const response = await HTTP.get('pokemon?limit=20');
+  return response.data.results;
 }

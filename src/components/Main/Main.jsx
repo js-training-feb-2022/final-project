@@ -1,6 +1,8 @@
 import React from 'react';
 import { PokemonCard } from '../PokemonCard/PokemonCard';
 import { getImageUrl } from '../../common/getImageUrl';
+import './mainStyle.scss';
+
 export function Main({ list, onClick }) {
   return (
     <main className='page'>
@@ -8,7 +10,7 @@ export function Main({ list, onClick }) {
       <div className='list'>
         <div className='list__container'>
           {list.map((item, id) => (
-            <PokemonCard name={item.name} id={id} imagePath={getImageUrl(id)} onClick={onClick} />
+            <PokemonCard name={item.name} id={id + 1} imagePath={getImageUrl(id + 1)} onClick={onClick} />
           ))}
         </div>
       </div>

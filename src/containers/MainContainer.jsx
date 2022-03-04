@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Main } from '../components/Main/Main';
+import { getPokemonList } from '../service/service';
 export function MainContainer() {
   const [pokemonList, setPokemonList] = useState();
   function handleOnClick() {
-    const pokemons = getPokemonList();
-    setPokemonList(pokemons);
+    console.log('clicked');
   }
-  useEffect(() => {
-    const pokemons = getPokemonList();
-    setPokemonList(pokemons);
-  }, []);
-  return <Main list={pokemonList} onClick={handleOnClick} />;
+  async function loadPokemonList() {
+    const response = await getPokemonList();
+    console.log(response);
+    setPokemonList(response);
+  }
+  useEffect(() => loadPokemonList(), []);
+  return pokemonList ? <Main list={pokemonList} onClick={handleOnClick} /> : <div>Loading...</div>;
 }
