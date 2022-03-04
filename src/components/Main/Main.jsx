@@ -1,7 +1,7 @@
 import React from 'react';
-import { PokemonCard } from '../PokemonCard/PokemonCard';
 import { getImageUrl } from '../../common/getImageUrl';
 import './mainStyle.scss';
+import { PokemonCardContainer } from '../../containers/PokemonCardContainer';
 
 export function Main({ list, onClick }) {
   return (
@@ -10,7 +10,13 @@ export function Main({ list, onClick }) {
       <div className='list'>
         <div className='list__container'>
           {list.map((item, id) => (
-            <PokemonCard name={item.name} id={id + 1} imagePath={getImageUrl(id + 1)} onClick={onClick} />
+            <PokemonCardContainer
+              key={item.name}
+              name={item.name}
+              id={id + 1}
+              imagePath={getImageUrl(id + 1)}
+              onClick={onClick}
+            />
           ))}
         </div>
       </div>
