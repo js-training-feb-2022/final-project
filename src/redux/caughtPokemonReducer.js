@@ -1,5 +1,13 @@
 import { CATCH_POKEMON, RELEASE_POKEMON } from './types';
-const initialState = [{ id: 1, date: '' }];
+const initialState = [
+  {
+    id: 1,
+    name: 'bulbasaur',
+    imagePath:
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
+    date: '',
+  },
+];
 
 export const caughtPokemonReducer = (state = initialState, action) => {
   switch (action.type) {

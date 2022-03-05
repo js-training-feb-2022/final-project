@@ -9,10 +9,9 @@ export function PokemonCardContainer({ id, name, imagePath }) {
   const status = caughtList.find((item) => item.id == id);
   const dispatch = useDispatch();
   function catchPokemonHandler(id) {
-    dispatch(catchPokemon({ id, date: getCurrentDate() }));
+    dispatch(catchPokemon({ id, name, imagePath, date: getCurrentDate() }));
   }
   function releasePokemonHandler(id) {
-    const res = caughtList.filter((item) => item.id != id);
     dispatch(releasePokemon(id));
   }
   function handleOnClick(id) {

@@ -10,12 +10,8 @@ export function MainContainer() {
   }
   async function loadPokemonList() {
     const response = await getPokemonList();
-    setPokemonList(response);
+    setPokemonList(response.map((item, id) => ({ ...item, id: id + 1 })));
   }
   useEffect(() => loadPokemonList(), []);
-  return pokemonList ? (
-    <Main list={pokemonList} onClick={handleOnClick} />
-  ) : (
-    <div>Loading...</div>
-  );
+  return pokemonList ? <Main list={pokemonList} /> : <div>Loading...</div>;
 }
