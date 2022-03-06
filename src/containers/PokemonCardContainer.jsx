@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { catchPokemon, releasePokemon } from '../redux/actions';
 import { PokemonCard } from '../components/PokemonCard/PokemonCard';
 import { getCurrentDate } from '../common/getCurrentDate';
+import { getPokemonStatus } from '../common/getPokemonStatus';
 
 export function PokemonCardContainer({ id, name, imagePath }) {
-  const caughtList = useSelector((state) => state.caught);
-  const status = caughtList.find((item) => item.id == id);
+  const link = `/pokemon/${id}`;
+  const status = getPokemonStatus(id);
   const dispatch = useDispatch();
   function catchPokemonHandler(id) {
     dispatch(catchPokemon({ id, name, imagePath, date: getCurrentDate() }));
@@ -24,7 +25,7 @@ export function PokemonCardContainer({ id, name, imagePath }) {
       id={id}
       name={name}
       imagePath={imagePath}
-      status={status}
+      link={link}
       state={status ? 'Release' : 'Catch'}
       onClick={() => handleOnClick(id)}
     />
