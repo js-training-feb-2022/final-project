@@ -17,10 +17,10 @@ export default function Details() {
   return (
     <div className="appContent pagesContent">
       <Link to="/" className='link'><Button variant="contained" color="secondary" className="homeButton">Home</Button></Link>
-      <h1 class="pagesHeading">🎥 {movie.fullTitle} 🎥</h1>
+      <h1 className="pagesHeading">🎥 {movie.fullTitle} 🎥</h1>
       <div className="details">
         <img src={movie.image} alt="" className='poster'></img>
-        <div class="details-text">
+        <div className="details-text">
           <p>{`Crew: ${movie.crew}`}</p>
           <p>{`IMDb Rating: ${movie.imDbRating}`}</p>
           <p>{`Year: ${movie.year}`}</p>

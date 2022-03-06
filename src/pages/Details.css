@@ -1,5 +1,5 @@
 .poster {
-  height: 300px;
+  width: 100%;
   border-radius: 20px;
 }
 
@@ -9,6 +9,13 @@
   font-size: 20px;
   justify-content: center;
   font-family: Oswald;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .details {
+    flex-direction: row;
+  }
 }
 
 .details-text {

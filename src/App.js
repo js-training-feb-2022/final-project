@@ -28,7 +28,7 @@ const App = () => {
         }
       });
       setPageNum(prevNum => prevNum + 12);
-    }, 1500);
+    }, 1000);
   }
   
   return (

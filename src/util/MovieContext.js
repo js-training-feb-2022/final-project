@@ -16,7 +16,7 @@ export const MovieContextProvider = ({children}) => {
   const [movieData, setData] = React.useState({});
   const [pageNum, setPageNum] = React.useState(18);
 
-  const baseURL = "https://imdb-api.com/en/API/Top250Movies/k_n157a4ct";
+  const baseURL = "https://imdb-api.com/en/API/Top250Movies/k_yj1kxps8";
 
   React.useEffect(function() {
     axios.get(baseURL)
