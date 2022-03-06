@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Main } from '../components/Main/Main';
 import { getPokemonList } from '../service/service';
-export function MainContainer() {
-  const [pokemonList, setPokemonList] = useState();
 
-  function handleOnClick() {
-    console.log('clicked');
-  }
+const OFFSET = 20;
+export function MainContainer() {
+  const [pokemonList, setPokemonList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   async function loadPokemonList() {
-    const response = await getPokemonList();
-    setPokemonList(response.map((item, id) => ({ ...item, id: id + 1 })));
+    const response = await getPokemonList(currentPage * OFFSET);
+    setPokemonList([
+      ...pokemonList,
+      ...response.map((item, id) => ({
+        ...item,
+        id: currentPage * OFFSET + id + 1,
+      })),
+    ]);
+    setCurrentPage(currentPage + 1);
   }
   useEffect(() => loadPokemonList(), []);
-  return pokemonList ? <Main list={pokemonList} /> : <div>Loading...</div>;
+  return pokemonList ? (
+    <Main list={pokemonList} onClick={() => loadPokemonList()} />
+  ) : (
+    <div>Loading...</div>
+  );
 }

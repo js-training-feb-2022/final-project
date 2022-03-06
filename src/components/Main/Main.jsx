@@ -3,7 +3,7 @@ import { getImageUrl } from '../../common/getImageUrl';
 import './mainStyle.scss';
 import { PokemonCardContainer } from '../../containers/PokemonCardContainer';
 
-export function Main({ list }) {
+export function Main({ list, onClick }) {
   return (
     <main className='page'>
       <h2>Main Page</h2>
@@ -19,6 +19,7 @@ export function Main({ list }) {
           ))}
         </div>
       </div>
+      {onClick ? <button onClick={onClick}>Load More</button> : ''}
     </main>
   );
 }
