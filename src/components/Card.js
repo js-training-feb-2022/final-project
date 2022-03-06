@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import { MovieContext } from '../util/MovieContext';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
 export default function Card({ image, year, id }) {
 
@@ -33,16 +34,16 @@ export default function Card({ image, year, id }) {
   }
 
   function watchedToggle(event) {
-    if (!watchedList.includes(event.target.id)) {
+    if (!watchedList.some(elem => elem.includes(event.target.id))) {
       setWatchedList(prevList => {
         return [
           ...prevList,
-          event.target.id
+          [event.target.id, format(new Date(), 'dd MMM yyyy')]
         ]
       }) 
     } else {
       setWatchedList(prevList => {
-        return prevList.filter(elem => elem !== event.target.id)
+        return prevList.filter(elem => !elem.includes(event.target.id))
       })
     }  
   }
@@ -52,11 +53,8 @@ export default function Card({ image, year, id }) {
   }
 
   function isWatched(id) {
-    return watchedList.includes(id);
+    return watchedList.some(elem => elem.includes(id));
   }
-
-  console.log(watchedList);
-  console.log(favoritesList);
 
   function toDetails(event) {
     setDetailsId(event.target.id);

@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.content {
+.appContent {
   width: 90%;
   margin: auto;
 }
@@ -32,4 +32,8 @@
   .cards {
     grid-template-columns: repeat(6, 1fr);
   }
+}
+
+.homeButton {
+  margin: 50px;
 }

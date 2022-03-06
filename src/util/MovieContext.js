@@ -13,26 +13,33 @@ export const MovieContextProvider = ({children}) => {
   const [favoritesList, setFavoritesList] = React.useState(initialFavorites || []);
   const [watchedList, setWatchedList] = React.useState(initialWatched || []);
   const [detailsId, setDetailsId] = React.useState(null);
-  const [movieData, setData] = React.useState(null);
+  const [movieData, setData] = React.useState({});
+  const [pageNum, setPageNum] = React.useState(18);
 
   const baseURL = "https://imdb-api.com/en/API/Top250Movies/k_n157a4ct";
 
   React.useEffect(function() {
-    axios.get(baseURL).then(response => {
-      setData(response.data);
-    });
-  }, [])
+    axios.get(baseURL)
+    .then(response => {
+      setData({
+        allData: response.data, 
+        movies: response.data.items.slice(0, pageNum)
+      });
+    })
+    }, []);
 
-  const contextValue = {
-    movieData,
-    setData,
-    detailsId,
-    setDetailsId,
-    favoritesList,
-    setFavoritesList,
-    watchedList,
-    setWatchedList
-  }
+    const contextValue = {
+      pageNum,
+      setPageNum,
+      movieData,
+      setData,
+      detailsId,
+      setDetailsId,
+      favoritesList,
+      setFavoritesList,
+      watchedList,
+      setWatchedList
+    }
 
   return (
     <MovieContext.Provider value={contextValue}>

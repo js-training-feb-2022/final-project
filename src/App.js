@@ -3,30 +3,49 @@ import './App.css';
 import Card from './components/Card';
 import Header from './components/Header'
 import { MovieContext } from './util/MovieContext';
-
-// import InfiniteScroll from 'react-infinite-scroll-component';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const App = () => {
 
-  const { movieData } = React.useContext(MovieContext);
+  const { movieData, setData, pageNum, setPageNum } = React.useContext(MovieContext);
 
-  if (!movieData) return null;
+  if(Object.keys(movieData).length === 0) return null;
 
-  const movies = movieData.items.slice(0, 12);
-  const movieCards = movies.map(movie => 
+  const movieCards = movieData.movies.map(movie => 
     <Card  
     image={movie.image} 
     key={movie.id}
     id={movie.id} 
     year={movie.year}
     />)
+
+  const fetchMoreData = () => {
+    setTimeout(() => {
+      setData(prevData => {
+        return {
+        ...prevData, 
+        movies: prevData.movies.concat(prevData.allData.items.slice(pageNum, pageNum + 12))
+        }
+      });
+      setPageNum(prevNum => prevNum + 12);
+    }, 1500);
+  }
+
+  console.log(movieData.movies);
   
   return (
-    <div className="content">
+    <div className="appContent">
       <Header />
+      <InfiniteScroll
+        dataLength={movieData.movies.length}
+        next={fetchMoreData}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}
+      >
         <div className="cards">
           {movieCards}
         </div>
+      </InfiniteScroll>
     </div>
   );
 }

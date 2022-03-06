@@ -1,5 +1,13 @@
 # Final project
 
+App published at https://bananazigzags.github.io/final-project/
+
+IMDB 250 Challenge: Watch top IMDB 250 movies!
+App displays top 250 movies and allows the user to track watched movies and favorites.
+localStorage is used to allow storing watched/favorites movies.
+
+Project Instructions:
+
 Необходимо создать приложение `pokedex`.
 
 Это последнее задание в курсе. Дедлайн - **17.03**!
