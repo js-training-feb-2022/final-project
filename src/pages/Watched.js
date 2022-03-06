@@ -20,12 +20,12 @@ export default function Watched() {
     )
 
   return (
-      <div class="appContent pagesContent">
+      <div className="appContent pagesContent">
         <Link to="/" className='link'>
           <Button variant="contained" color="secondary" className="homeButton">Home</Button>
         </Link>
         <h1 className="pagesHeading">👁️ Watched 👁️</h1>
-        <div class="cards">
+        <div className="cards">
           {watchedMovies}
         </div>
       </div> 

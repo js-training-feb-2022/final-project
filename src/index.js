@@ -21,8 +21,7 @@ const navigation = (
         <Route path="/watched" element={<Watched/>} />
         <Route path="/details" element={<Details/>} />
       </Routes>
-    </MovieContextProvider>
-   
+    </MovieContextProvider>   
   </Router>
 )
 

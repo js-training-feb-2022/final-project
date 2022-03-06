@@ -30,8 +30,6 @@ const App = () => {
       setPageNum(prevNum => prevNum + 12);
     }, 1500);
   }
-
-  console.log(movieData.movies);
   
   return (
     <div className="appContent">
