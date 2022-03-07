@@ -2,13 +2,13 @@ import { MainContainer } from './containers/MainContainer';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import { CaughtPokemonsContainer } from './containers/CaughtPokemonsContainer';
 import { PokemonPageContainer } from './containers/PokemonPageContainer';
+import { Header } from './components/Header/Header';
+import './App.scss';
+
 function App() {
   return (
     <div className='App'>
-      <header>
-        <NavLink to='/'>Main</NavLink>
-        <NavLink to='/caught'>Caught</NavLink>
-      </header>
+      <Header />
       <Routes>
         <Route path='/' element={<MainContainer />} />
         <Route path='/caught' element={<CaughtPokemonsContainer />} />

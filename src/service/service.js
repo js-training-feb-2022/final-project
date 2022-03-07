@@ -8,6 +8,5 @@ export async function getPokemonList(offset = 0) {
 }
 export async function getPokemon(id) {
   const response = await HTTP.get(`pokemon/${id}`);
-  console.log(response.data);
   return response.data;
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-import { getImageUrl } from '../../common/getImageUrl';
+import { getImageUrl } from '../../auxilary/getImageUrl';
 import './mainStyle.scss';
 import { PokemonCardContainer } from '../../containers/PokemonCardContainer';
+import { CustomButton } from '../../UI/CustomButton/CustomButton';
 
 export function Main({ list, onClick }) {
   return (
     <main className='page'>
-      <h2>Main Page</h2>
       <div className='list'>
         <div className='list__container'>
           {list.map((item) => (
@@ -19,7 +19,11 @@ export function Main({ list, onClick }) {
           ))}
         </div>
       </div>
-      {onClick ? <button onClick={onClick}>Load More</button> : ''}
+      {onClick ? (
+        <CustomButton type={'Catch'} title={'Load More'} onClick={onClick} />
+      ) : (
+        ''
+      )}
     </main>
   );
 }

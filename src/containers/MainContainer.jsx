@@ -18,9 +18,9 @@ export function MainContainer() {
     setCurrentPage(currentPage + 1);
   }
   useEffect(() => loadPokemonList(), []);
-  return pokemonList ? (
+  return pokemonList.length > 0 ? (
     <Main list={pokemonList} onClick={() => loadPokemonList()} />
   ) : (
-    <div>Loading...</div>
+    <div></div>
   );
 }

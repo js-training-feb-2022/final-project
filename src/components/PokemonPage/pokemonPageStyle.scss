@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+.page_pokemon {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+  .image {
+    max-width: 30rem;
+    width: 100%;
+    object-fit: contain;
+  }
+  .pokemon-wrapper {
+    display: flex;
+    border: 2px solid $LINK_COLOR_2;
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+}
+.aside {
+  background-color: $LINK_COLOR_2;
+  padding: 2rem;
+}
+.aside__extra {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  li {
+    font-size: 2rem;
+  }
+}
+li {
+  list-style-type: none;
+}

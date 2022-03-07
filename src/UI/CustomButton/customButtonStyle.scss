@@ -1,0 +1,19 @@
+@import '../../variables.scss';
+.button {
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 1rem;
+  &_default {
+    color: white;
+    border: 0.1rem solid $LINK_COLOR_1;
+    background-color: $LINK_COLOR_1;
+  }
+  &_active {
+    color: black;
+    border: 0.1rem solid $SECONDARY_COLOR;
+    background-color: white;
+  }
+}

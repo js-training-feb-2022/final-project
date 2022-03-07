@@ -1,5 +1,5 @@
 import { createStore, compose } from 'redux';
-import { rootReducer } from '../redux/rootReducer';
+import { rootReducer } from '../rootReducer';
 export const store = createStore(
   rootReducer,
   compose(
