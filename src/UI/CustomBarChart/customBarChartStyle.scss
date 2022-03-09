@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+.chart {
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.bar {
+  height: 2rem;
+  background-color: rgb(190, 190, 190);
+  display: grid;
+  grid-template-columns: 50fr repeat(255, 1fr);
+  margin: 1rem 0;
+}
+.bar__name {
+  font-size: 1.4rem;
+  text-align: start;
+  background-color: white;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  padding-right: 1rem;
+}
+$totalColumns: 257;
+
+@for $i from 2 through $totalColumns {
+  .bar-#{$i} {
+    background-color: $LINK_COLOR_1;
+    grid-column-start: 2;
+    grid-column-end: $i;
+  }
+}

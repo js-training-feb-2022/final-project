@@ -4,30 +4,34 @@
   align-items: center;
   gap: 3rem;
   .image {
-    max-width: 30rem;
+    max-width: 40rem;
     width: 100%;
     object-fit: contain;
+    background-color: $BG_COLOR;
   }
   .pokemon-wrapper {
+    padding: 2rem;
     display: flex;
-    border: 2px solid $LINK_COLOR_2;
     border-radius: 2rem;
     overflow: hidden;
   }
 }
 .aside {
-  background-color: $LINK_COLOR_2;
-  padding: 2rem;
+  padding: 0 2rem;
 }
-.aside__extra {
+.properties-list {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-
-  li {
-    font-size: 2rem;
+  .property {
+    > * {
+      font-size: 2rem;
+    }
   }
 }
-li {
-  list-style-type: none;
+.pokemon-stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }

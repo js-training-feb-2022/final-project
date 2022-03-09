@@ -14,20 +14,25 @@ export function PokemonPageContainer() {
     setPokeData(data);
   }
   function getStats(list, statName) {
-    return list.map((stat) => stat[statName].name).join(', ');
+    return list.map((stat) => stat[statName].name);
+  }
+  function getBaseStats(list) {
+    return list.map((item) => ({ stat: item.base_stat, name: item.stat.name }));
   }
   useEffect(() => loadPokemonData(), []);
   return pokeData ? (
     <PokemonPage
       id={'#' + pokeData.id.toString().padStart(3, '0')}
       name={pokeData.name}
-      weight={pokeData.weight}
+      weight={(pokeData.weight / 10).toFixed(1)}
+      height={(pokeData.height / 10).toFixed(1)}
       imagePath={getImageUrl(pokeData.id)}
       abilities={getStats(pokeData.abilities, 'ability')}
       types={getStats(pokeData.types, 'type')}
+      stats={getBaseStats(pokeData.stats)}
       status={status ? `Caught in the wild ${status.date}` : ''}
     />
   ) : (
-    <div>Loading...</div>
+    ''
   );
 }

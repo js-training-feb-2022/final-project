@@ -13,7 +13,13 @@ export function PokemonCard({ name, id, imagePath, onClick, link, state }) {
     <div className={`card ` + CARD_STYLE[state]}>
       <NavLink to={link}>
         <div className='card__container'>
-          <img className='image' src={imagePath} alt={name} />
+          <img
+            width={200}
+            height={200}
+            className='image'
+            src={imagePath}
+            alt={name}
+          />
           <div className='id-font'>{id}</div>
           <h4>{name}</h4>
         </div>
