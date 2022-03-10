@@ -1,0 +1,206 @@
+/*----------------------- main styles ------------------------*/
+/*@font-face {*/
+/*    font-family: 'CoreSansCBold';*/
+/*    src: url('../fonts/CoreSansC-65Bold.eot');*/
+/*    src: local('☺'), url('../fonts/CoreSansC-65Bold.woff') format('woff'), url('../fonts/CoreSansC-65Bold.ttf') format('truetype'), url('../fonts/CoreSansC-65Bold.svg') format('svg');*/
+/*    font-weight: 500;*/
+/*    font-style: normal;*/
+
+
+/*}*/
+
+/*@font-face {*/
+/*    font-family: 'CoreSansCLight';*/
+/*    src: url('../fonts/CoreSansC-35Light.eot');*/
+/*    src: local('☺'), url('../fonts/CoreSansC-35Light.woff') format('woff'), url('../fonts/CoreSansC-35Light.ttf') format('truetype'), url('../fonts/CoreSansC-35Light.svg') format('svg');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*}*/
+
+* {
+    /*font-family: CoreSansCLight, serif;*/
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+/*END----------------------- main styles ------------------------*/
+
+
+
+
+
+
+
+
+/*----------------------- Nav Bar ------------------------*/
+
+.navBar {
+    display: flex;
+    position: sticky;
+    text-align: center;
+    top: 0;
+    justify-content: center;
+    height: 10vh;
+    align-items: center;
+    width: 100%;
+    background-color: steelblue;
+    z-index: 2;
+}
+
+/*END----------------------- Nav Bar ------------------------*/
+
+/*----------------------- All Pokemons Page ------------------------*/
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.each-card__name {
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+}
+
+.each-card__link:hover{
+    transition: 0.5s;
+    opacity: 0.4;
+}
+
+.each-card {
+    display: block;
+    /*flex-wrap: wrap;*/
+    margin: 5px;
+    justify-content: space-between;
+    width: 200px;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.each-card__id {
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    /*width: 15%;*/
+    /*height: 15%;*/
+    background-color: steelblue;
+    color: white;
+    /*border-radius: 15%;*/
+}
+
+
+.card-wrapper__button {
+    width: 100%;
+    padding: 5px;
+}
+
+.general-page-images {
+    width: 200px;
+}
+.main-page-navigation{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    position: sticky;
+    z-index: 3;
+    background-color: white;
+    width: 100%;
+    top: 10vh;
+    margin: 15px 0;
+    height: 50px;
+    padding: 15px;
+    align-items: center;
+}
+.nav-button{
+    margin: 0 5px;
+    height: 100%;
+    width: 300px;
+}
+
+/*END ----------------------- All Pokemons Page ------------------------*/
+
+/* ----------------------- Each Pokemon Page ------------------------*/
+ul{
+    font-size: 25px;
+}
+.each-page-image{
+    padding: 15px;
+    width: 35vw;
+}
+.each-page-wrapper{
+    display: block;
+    margin: auto;
+    justify-content: center;
+    max-width: 900px;
+}
+.each-page-content-wrapper{
+    justify-content: space-between;
+    display: flex;
+    /*border: 1px solid black;*/
+}
+.each-page-description{
+    display: block;
+    margin: auto;
+}
+.each-page-weight{
+    margin: 20px 0;
+}
+.each-page-id{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    background-color: steelblue;
+    color: white;
+    /*margin: 20px 0;*/
+    height: 50px;
+    align-items: center;
+}
+
+.each-page-image-and-id{
+    border: 1px solid black;
+}
+
+.each-page__name{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0;
+}
+
+.each-page-abilities{
+    margin: 20px 0;
+}
+.each-page-types{
+    margin: 20px 0;
+}
+.wrapper-for-margin{
+    margin: 20px;
+}
+.not-cathced-status{
+    background-color: red;
+    color: white;
+    padding: 5px;
+}
+.cathced-status{
+    background-color: green;
+    color: white;
+    padding: 5px;
+}
+/* END----------------------- Each Pokemon Page ------------------------*/
