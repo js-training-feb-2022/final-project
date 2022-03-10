@@ -12,7 +12,8 @@ import Watched from './pages/Watched';
 import Details from './pages/Details';
 import { MovieContextProvider } from './util/MovieContext';
 
-const navigation = (
+const Navigation = () => {
+  return (
   <Router>
     <MovieContextProvider>
       <Routes>
@@ -23,10 +24,11 @@ const navigation = (
       </Routes>
     </MovieContextProvider>   
   </Router>
-)
+  )
+}
 
 ReactDOM.render(
-  navigation,
+  <Navigation />,
   document.getElementById('root')
 );
 

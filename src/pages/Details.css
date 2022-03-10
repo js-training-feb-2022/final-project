@@ -1,5 +1,6 @@
 .poster {
-  width: 100%;
+  width: 250px;
+  margin: auto;
   border-radius: 20px;
 }
 
@@ -15,6 +16,11 @@
 @media screen and (min-width: 768px) {
   .details {
     flex-direction: row;
+  }
+
+  .poster {
+    width: 250px;
+    margin: 0;
   }
 }
 

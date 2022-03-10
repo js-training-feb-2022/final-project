@@ -11,13 +11,16 @@ const App = () => {
 
   if(Object.keys(movieData).length === 0) return null;
 
-  const movieCards = movieData.movies.map(movie => 
+  const movieCards = movieData.movies.map(movie => {
+    return (
     <Card  
     image={movie.image} 
     key={movie.id}
     id={movie.id} 
     year={movie.year}
-    />)
+    />
+    )
+  })
 
   const fetchMoreData = () => {
     setTimeout(() => {
@@ -38,7 +41,7 @@ const App = () => {
         dataLength={movieData.movies.length}
         next={fetchMoreData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        loader={<h4>{movieData.movies.length === 250 ? "All movies loaded" : "Loading..."}</h4>}
       >
         <div className="cards">
           {movieCards}

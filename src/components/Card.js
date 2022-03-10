@@ -18,6 +18,8 @@ export default function Card({ image, year, id }) {
     localStorage.setItem('watchedList', JSON.stringify(watchedList));
   }, [watchedList]);
 
+  const [isLoaded, setisLoaded] = React.useState(false);
+
   function likeToggle(event) {
     if (!favoritesList.includes(event.target.id)) {
       setFavoritesList(prevList => {
@@ -61,11 +63,28 @@ export default function Card({ image, year, id }) {
   }
 
   return (
-      <div className="card">
-      <Link to="/details"><img src={image} alt="" className="movieImage" onClick={toDetails} id={id} /></Link>
-      <Chip className="year" color="primary" label={year}></Chip>      
-      <span className="like" onClick={likeToggle} id={id}>{ isLiked(id) ? '❤️' : '🤍' }</span>
-      <span className="watched"><Button variant="contained" size="small" fontSize="0.5rem" color={isWatched(id) ? "success" : "secondary"} onClick={watchedToggle} id={id}>{ isWatched(id) ? 'watched ✔️' : 'to watch'}</Button></span>
+    <div className="card">
+      <Link to="/details">
+        <img 
+          src={image} 
+          alt="" 
+          className="movieImage" 
+          onClick={toDetails} 
+          id={id} 
+          onLoad={() => setisLoaded(true)}
+        />
+        </Link>
+    {
+      isLoaded && 
+      (
+        <>
+          <Chip className="year" color="primary" label={year}></Chip>      
+          <span className="like" onClick={likeToggle} id={id}>{ isLiked(id) ? '❤️' : '🤍' }</span>
+          <span className="watched"><Button variant="contained" size="small" fontSize="0.5rem" color={isWatched(id) ? "success" : "secondary"} onClick={watchedToggle} id={id}>{ isWatched(id) ? 'watched ✔️' : 'to watch'}</Button></span>
+        </>
+        
+      )
+    }
     </div>
   );
 }
