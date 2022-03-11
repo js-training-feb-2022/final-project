@@ -20,7 +20,7 @@ const Navigation = () => {
         <Route exact path="/" element={<App/>} />
         <Route path="/favorites" element={<Favorites/>} />
         <Route path="/watched" element={<Watched/>} />
-        <Route path="/details" element={<Details/>} />
+        <Route path="/:id" element={<Details/>} />
       </Routes>
     </MovieContextProvider>   
   </Router>

@@ -27,10 +27,10 @@ const App = () => {
       setData(prevData => {
         return {
         ...prevData, 
-        movies: prevData.movies.concat(prevData.allData.items.slice(pageNum, pageNum + 12))
+        movies: prevData.movies.concat(prevData.allData.items.slice(pageNum, pageNum + 6))
         }
       });
-      setPageNum(prevNum => prevNum + 12);
+      setPageNum(prevNum => prevNum + 6);
     }, 1000);
   }
   

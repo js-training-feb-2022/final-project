@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 
 export default function Card({ image, year, id }) {
 
-  const { setDetailsId, favoritesList, setFavoritesList, watchedList, setWatchedList } = React.useContext(MovieContext);
+  const { favoritesList, setFavoritesList, watchedList, setWatchedList } = React.useContext(MovieContext);
 
   React.useEffect(() => {
     localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
@@ -58,18 +58,13 @@ export default function Card({ image, year, id }) {
     return watchedList.some(elem => elem.includes(id));
   }
 
-  function toDetails(event) {
-    setDetailsId(event.target.id);
-  }
-
   return (
     <div className="card">
-      <Link to="/details">
+      <Link to={`/${id}`}>
         <img 
           src={image} 
           alt="" 
           className="movieImage" 
-          onClick={toDetails} 
           id={id} 
           onLoad={() => setisLoaded(true)}
         />

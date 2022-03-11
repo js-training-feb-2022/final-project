@@ -12,12 +12,11 @@ export const MovieContextProvider = ({children}) => {
 
   const [favoritesList, setFavoritesList] = React.useState(initialFavorites || []);
   const [watchedList, setWatchedList] = React.useState(initialWatched || []);
-  const [detailsId, setDetailsId] = React.useState(null);
   const [movieData, setData] = React.useState({});
   const [pageNum, setPageNum] = React.useState(18);
 
   const baseURL = "https://imdb-api.com/en/API/Top250Movies/k_yj1kxps8";
-
+  
   React.useEffect(function() {
     axios.get(baseURL)
     .then(response => {
@@ -33,8 +32,6 @@ export const MovieContextProvider = ({children}) => {
       setPageNum,
       movieData,
       setData,
-      detailsId,
-      setDetailsId,
       favoritesList,
       setFavoritesList,
       watchedList,

@@ -1,18 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { MovieContext } from '../util/MovieContext';
 import './Details.css'
 
 export default function Details() {
-  const { detailsId, movieData, watchedList } = React.useContext(MovieContext);
+  const { movieData, watchedList } = React.useContext(MovieContext);
+
+  let params = useParams();
+  let detailsId = params.id;
+
   const movie = movieData.allData.items.filter(movie => movie.id === detailsId)[0];
 
   const isWatched = (id) => watchedList.some(elem => elem.includes(id));
 
   const getWatchedDate = (id) => watchedList.filter(elem => elem.includes(id))[0][1]; 
-
-  if (!detailsId) return null;
 
   return (
     <div className="appContent pagesContent">
