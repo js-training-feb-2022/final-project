@@ -2,16 +2,17 @@
 .chart {
   border: 1px solid black;
   padding: 0.5rem 1rem;
-  min-width: 70rem;
+  min-width: 20rem;
+  max-width: 80rem;
 }
 
 .bar {
   width: 100%;
-  height: 2rem;
+  height: 2.2rem;
   background-color: rgb(190, 190, 190);
   display: grid;
   grid-template-columns: 50fr repeat(255, 1fr);
-  margin: 1rem 0;
+  margin: 1.5rem 0;
 }
 .bar__name {
   font-size: 1.4rem;
@@ -28,5 +29,11 @@ $totalColumns: 257;
     background-color: $LINK_COLOR_1;
     grid-column-start: 2;
     grid-column-end: $i;
+  }
+}
+@media (max-width: 768px) {
+  .bar__name {
+    font-size: 1rem;
+    padding-right: 0.2rem;
   }
 }

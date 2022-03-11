@@ -17,9 +17,9 @@ export function PokemonPage({
   return (
     <div className='page page_pokemon'>
       <h2>{name}</h2>
-      <div className='pokemon-wrapper'>
-        <img className='image' src={imagePath} alt={name} />
-        <aside className='aside'>
+      <div className='page_pokemon__wrapper'>
+        <div className='pokemon-wrapper'>
+          <img className='image' src={imagePath} alt={name} />
           <ul className='properties-list'>
             <li className='properties-list__item property'>
               <span className='property__title'>ID: </span>
@@ -53,10 +53,10 @@ export function PokemonPage({
               <span className='property__title'>{status}</span>
             </li>
           </ul>
-        </aside>
-      </div>
-      <div className='pokemon-stats'>
-        <CustomBarChart list={stats} />
+        </div>
+        <div className='pokemon-stats'>
+          <CustomBarChart list={stats} />
+        </div>
       </div>
     </div>
   );

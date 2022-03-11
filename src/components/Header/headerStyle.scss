@@ -36,3 +36,19 @@
   background-color: $LINK_COLOR_1;
   color: white;
 }
+@media (max-width: 480px) {
+  .header__nav {
+    justify-content: center;
+  }
+  .menu {
+    &__item {
+      > * {
+        text-align: center;
+        font-size: 1.8rem;
+        position: relative;
+        padding: 2rem;
+        width: 12rem;
+      }
+    }
+  }
+}
