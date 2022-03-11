@@ -1,5 +1,6 @@
 import React from 'react';
 import { CustomBarChart } from '../../UI/CustomBarChart/CustomBarChart';
+import { POKEMON_TYPE_COLOR } from '../../auxilary/PokemonTypes';
 import './pokemonPageStyle.scss';
 
 export function PokemonPage({
@@ -39,7 +40,14 @@ export function PokemonPage({
             </li>
             <li className='properties-list__item property'>
               <span className='property__title'>Types: </span>
-              <span className='property__value'>{types}</span>
+              {types.map((type) => (
+                <span
+                  key={type}
+                  style={{ backgroundColor: POKEMON_TYPE_COLOR[type] }}
+                  className={'property__value type'}>
+                  {type}
+                </span>
+              ))}
             </li>
             <li className='properties-list__item property'>
               <span className='property__title'>{status}</span>

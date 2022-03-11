@@ -2,9 +2,11 @@
 .chart {
   border: 1px solid black;
   padding: 0.5rem 1rem;
+  min-width: 70rem;
 }
 
 .bar {
+  width: 100%;
   height: 2rem;
   background-color: rgb(190, 190, 190);
   display: grid;

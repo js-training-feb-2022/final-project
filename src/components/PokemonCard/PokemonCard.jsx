@@ -11,15 +11,9 @@ const CARD_STYLE = {
 export function PokemonCard({ name, id, imagePath, onClick, link, state }) {
   return (
     <div className={`card ` + CARD_STYLE[state]}>
-      <NavLink to={link}>
+      <NavLink className='card__link' to={link}>
         <div className='card__container'>
-          <img
-            width={200}
-            height={200}
-            className='image'
-            src={imagePath}
-            alt={name}
-          />
+          <img className='image' src={imagePath} alt={name} />
           <div className='id-font'>{id}</div>
           <h4>{name}</h4>
         </div>

@@ -27,6 +27,11 @@
     > * {
       font-size: 2rem;
     }
+    &__value.type {
+      display: inline-block;
+      margin: 0 1rem;
+      padding: 0.2rem 0.5rem;
+    }
   }
 }
 .pokemon-stats {
