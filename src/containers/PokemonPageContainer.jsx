@@ -30,7 +30,7 @@ export function PokemonPageContainer() {
       abilities={getStats(pokeData.abilities, 'ability')}
       types={getStats(pokeData.types, 'type')}
       stats={getBaseStats(pokeData.stats)}
-      status={status ? `Caught in the wild ${status.date}` : ''}
+      status={status ? `Caught in the wild ${status.date}` : 'Not caught'}
     />
   ) : (
     ''

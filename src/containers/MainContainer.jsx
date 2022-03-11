@@ -16,7 +16,7 @@ export function MainContainer() {
   }
   async function loadPokemonList() {
     const response = await getPokemonList(OFFSET, currentPage * OFFSET);
-    if (response.length === 0) {
+    if (response.length < OFFSET) {
       isOver = true;
     }
     setPokemonList([...pokemonList, ...formatList(response)]);
