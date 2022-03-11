@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {getEachPokemon} from "../actions/action";
 import '../style/navBar.css'
 
-//Исправить дату - если ее нет то выводится пустота
 const EachTest = () => {
     const {itemId} = useParams();
     const dispatch = useDispatch();
@@ -16,21 +15,15 @@ const EachTest = () => {
         dispatch(getEachPokemon(itemId, catchedPokemons))
     }, [])
 
-    function ShowMeMore() {
-        // catchedPokemons.map(item => {
-        // })
-        // console.log(pokemon.date)
-    }
-
     if (!isFetching) {
         return <div>Загрузка...</div>;
     } else {
         return (
             <div className={'wrapper-for-margin'}>
                 <div className={'each-page-wrapper'}>
-                    <div className={'each-page__name'}>
-                        <h3>{pokemon.name}</h3>
-                    </div>
+
+                    <div className={'each-page__name'}><h3>{pokemon.name}</h3></div>
+
                     <div className={'each-page-content-wrapper'}>
                         <div className={'each-page-image-and-id'}>
                             <img className={'each-page-image'}
@@ -43,23 +36,34 @@ const EachTest = () => {
                         </div>
                         <div className={'each-page-description'}>
 
-                            <div className={'each-page-weight'}>
-                                <ul>Weight:</ul>
+                            <div className={'each-page-props-descr'}>
+                                <p>Weight:</p>
+                                <ul>
                                 <li>{pokemon.weight}</li>
+                                </ul>
+
                             </div>
-                            <div className={'each-page-abilities'}>
-                                <ul>Abilities:</ul>
+
+                            <div className={'each-page-props-descr'}>
+                                <p>Abilities:</p>
+                                    <ul>
                                 {pokemon.abilities.map((item, i) => (
                                     <li key={i}>{item.ability.name}</li>
+
                                 ))}
+                                    </ul>
                             </div>
-                            <div className={'each-page-types'}>
-                                <ul>Types:</ul>
-                                {pokemon.types.map((item, i) =>
+
+                            <div className={'each-page-props-descr'}>
+                                <p>Types:</p>
+                                <ul>
+                                {
+                                    pokemon.types.map((item, i) =>
                                     <li key={i}>
                                         {item.type.name}
-                                    </li>
-                                )}
+                                    </li>)
+                                }
+                                </ul>
                             </div>
                             {
                                 pokemon.date === undefined
@@ -73,17 +77,16 @@ const EachTest = () => {
                                         <div className={'cathced-status'}>
                                             <p>Status: Catched</p>
                                         </div>
-                                        <div>
+                                        <div className={'date-of-catch'}>
                                             {pokemon.date.getFullYear()}/{pokemon.date.getMonth()}/{pokemon.date.getDate()}
                                             <br/>
-                                            <div>
+                                            <div className={'time-of-catch'}>
                                             {pokemon.date.getHours()}:{pokemon.date.getMinutes()}
                                             </div>
                                         </div>
                                     </div>
                             }
                         </div>
-                        {/*<button onClick={ShowMeMore}>ShowMeMore</button>*/}
                     </div>
                 </div>
             </div>

@@ -1,24 +1,22 @@
 /*----------------------- main styles ------------------------*/
-/*@font-face {*/
-/*    font-family: 'CoreSansCBold';*/
-/*    src: url('../fonts/CoreSansC-65Bold.eot');*/
-/*    src: local('☺'), url('../fonts/CoreSansC-65Bold.woff') format('woff'), url('../fonts/CoreSansC-65Bold.ttf') format('truetype'), url('../fonts/CoreSansC-65Bold.svg') format('svg');*/
-/*    font-weight: 500;*/
-/*    font-style: normal;*/
+@font-face {
+    font-family: 'CoreSansCBold';
+    src: url('../fonts/CoreSansC-65Bold.eot');
+    src: local('☺'), url('../fonts/CoreSansC-65Bold.woff') format('woff'), url('../fonts/CoreSansC-65Bold.ttf') format('truetype'), url('../fonts/CoreSansC-65Bold.svg') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
 
-
-/*}*/
-
-/*@font-face {*/
-/*    font-family: 'CoreSansCLight';*/
-/*    src: url('../fonts/CoreSansC-35Light.eot');*/
-/*    src: local('☺'), url('../fonts/CoreSansC-35Light.woff') format('woff'), url('../fonts/CoreSansC-35Light.ttf') format('truetype'), url('../fonts/CoreSansC-35Light.svg') format('svg');*/
-/*    font-weight: normal;*/
-/*    font-style: normal;*/
-/*}*/
+@font-face {
+    font-family: 'CoreSansCLight';
+    src: url('../fonts/CoreSansC-35Light.eot');
+    src: local('☺'), url('../fonts/CoreSansC-35Light.woff') format('woff'), url('../fonts/CoreSansC-35Light.ttf') format('truetype'), url('../fonts/CoreSansC-35Light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
-    /*font-family: CoreSansCLight, serif;*/
+    font-family: CoreSansCLight, serif;
     margin: 0;
     padding: 0;
 }
@@ -31,16 +29,27 @@ a {
     text-decoration: none;
     color: black;
 }
+h3{
+    font-family: CoreSansCBold, serif;
+}
 /*END----------------------- main styles ------------------------*/
 
-
-
-
-
-
-
-
 /*----------------------- Nav Bar ------------------------*/
+.navbar-list__item:hover{
+    color: white;
+    text-decoration: underline;
+    opacity: 0.7;
+    transition: 0.8s;
+    background-color: #efefef;
+}
+.navbar-list__item{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: white;
+}
 
 .navBar {
     display: flex;
@@ -54,7 +63,15 @@ a {
     background-color: steelblue;
     z-index: 2;
 }
-
+.navbar-list__item-back{
+    text-align: left;
+    position: fixed;
+    left: 50px;
+    border: 1px black solid;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: white;
+}
 /*END----------------------- Nav Bar ------------------------*/
 
 /*----------------------- All Pokemons Page ------------------------*/
@@ -78,7 +95,7 @@ a {
     text-align: center;
 }
 
-.each-card__link:hover{
+.each-card__link:hover {
     transition: 0.5s;
     opacity: 0.4;
 }
@@ -115,7 +132,8 @@ a {
 .general-page-images {
     width: 200px;
 }
-.main-page-navigation{
+
+.main-page-navigation {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -129,7 +147,8 @@ a {
     padding: 15px;
     align-items: center;
 }
-.nav-button{
+
+.nav-button {
     margin: 0 5px;
     height: 100%;
     width: 300px;
@@ -138,32 +157,55 @@ a {
 /*END ----------------------- All Pokemons Page ------------------------*/
 
 /* ----------------------- Each Pokemon Page ------------------------*/
-ul{
-    font-size: 25px;
+.catched-pokemons-null{
+    display: flex;
+    height: 100vh;
+    border: 1px solid black;
+    margin: auto;
 }
-.each-page-image{
+
+.catched-pokemons-null h3{
+    display: flex;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+.each-page-image {
     padding: 15px;
     width: 35vw;
 }
-.each-page-wrapper{
+
+.each-page-wrapper {
     display: block;
     margin: auto;
     justify-content: center;
     max-width: 900px;
 }
-.each-page-content-wrapper{
+
+.each-page-content-wrapper {
     justify-content: space-between;
     display: flex;
     /*border: 1px solid black;*/
 }
-.each-page-description{
+
+.each-page-description {
     display: block;
     margin: auto;
 }
-.each-page-weight{
+
+.each-page-props-descr {
     margin: 20px 0;
+    /*font-family: CoreSansCBold, serif;*/
 }
-.each-page-id{
+
+.each-page-props-descr p{
+    font-size: 25px;
+    margin: 10px 0;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+}
+
+.each-page-id {
     display: flex;
     justify-content: space-between;
     padding: 0 50px;
@@ -174,33 +216,50 @@ ul{
     align-items: center;
 }
 
-.each-page-image-and-id{
+.each-page-image-and-id {
     border: 1px solid black;
 }
 
-.each-page__name{
+.each-page__name {
     text-align: center;
     text-transform: uppercase;
-    margin: 30px 0;
+    margin: 30px 0;font-size: 33px;
 }
 
-.each-page-abilities{
-    margin: 20px 0;
-}
-.each-page-types{
-    margin: 20px 0;
-}
-.wrapper-for-margin{
+/*.each-page-abilities {*/
+/*    margin: 20px 0;*/
+/*}*/
+
+/*.each-page-types {*/
+/*    margin: 20px 0;*/
+/*}*/
+
+.wrapper-for-margin {
     margin: 20px;
 }
-.not-cathced-status{
+
+.not-cathced-status {
     background-color: red;
     color: white;
-    padding: 5px;
+    margin: 7px 0;
+    padding: 7px;
 }
-.cathced-status{
+
+.cathced-status {
     background-color: green;
     color: white;
-    padding: 5px;
+    margin: 7px 0;
+    padding: 7px;
 }
+.date-of-catch{
+    padding: 7px 0;
+    /*font-family: CoreSansCBold, serif;*/
+}
+.time-of-catch{
+    padding: 7px 0;
+    /*font-family: CoreSansCBold, serif;*/
+    font-weight: bold;
+    opacity: 0.5;
+}
+
 /* END----------------------- Each Pokemon Page ------------------------*/

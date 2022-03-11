@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import '../style/navBar.css'
 import {setCatchedPokemon, releasePokemons, setPokemons} from "../store/requestReducer";
 
-function Test() {
+const Test = ({main}) => {
     const dispatch = useDispatch()
     const pokemons = useSelector(state => state.pokemons.items)
     const catchedPokemons = useSelector(state => state.pokemons.catchedPokemons)
@@ -13,36 +13,21 @@ function Test() {
 
     // еще раз пройтись по catched и что сделать? - не ясно!!
     useEffect(() => {
-        console.log('First pokemon effect')
+        if (main === 'main'){
+            let res = '';
+            if (catchedPokemons.length !== 0) {
+                res = catchedPokemons.map(item => {
+                    return item.name
+                })
+            }
+            return dispatch(getPokemons('', res))
+        }
+
         if (catchedPokemons.length !== 0) {
-
-
-
-// не обновляется
-            const res = catchedPokemons.map(item => {
-                return item.name
-            })
-            console.log(pokemons)
-            pokemons.results.map(item => {
-                if (res.indexOf(item.name) !== -1) {
-                    return item.isCatch = true;
-                }
-                else return item.isCatch = false;
-                // dispatch(releasePokemons(name))
-            })
-            console.log(pokemons)
                 return pokemons;
-
-
-
-
         }
         dispatch(getPokemons())
     }, [])
-
-    function showMeMore() {
-        console.log(pokemons);
-    }
 
     const nextPage = () => {
         let res = '';
@@ -90,7 +75,7 @@ function Test() {
         dispatch(setCatchedPokemon(pokemon))
     }
 
-    const releasePokemon = (name, id) => {
+    const releasePokemon = (name) => {
         pokemons.results.map(item => {
                 if (name === item.name) {
                     dispatch(releasePokemons(name))
@@ -117,7 +102,7 @@ function Test() {
                                 <Link
                                     to={`/${parseInt(item.url.replace('https://pokeapi.co/api/v2/pokemon/', ''))}`}>
                                     <div className={'each-card__link'}>
-                                        <h4 className={'each-card__name'}>{item.name}</h4>
+                                        <h3 className={'each-card__name'}>{item.name}</h3>
                                         <img alt={`pokemon`}
                                              className={'general-page-images'}
                                              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${parseInt(item.url.replace('https://pokeapi.co/api/v2/pokemon/', ''))}.png`}/>

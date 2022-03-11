@@ -8,46 +8,38 @@ const CatchedPage = () => {
     const catchedPokemons = useSelector(state => state.pokemons.catchedPokemons)
     const pokemons = useSelector(state => state.pokemons.items)
 
-    // const res = pokemons.results.map((item, i) => {
-    //      if(item.name === catchedPokemons[i])
-    //          return item.name
-    // })
-
-    const showMeMore = () => {
-        console.log(catchedPokemons[1].url)
-    }
     const releasePokemon = (name) => {
-        // pokemons.results.map(item => {
-        //     if (name === item.name) {
-        //         return item.isCatch = false;
-        //     }
-                dispatch(releasePokemons(name))
-        // })
+        pokemons.results.map(item => {
+            if (name === item.name)
+                return item.isCatch = false;
+            dispatch(releasePokemons(name))
+        })
     }
-
+if(catchedPokemons.length === 0){
+    return (
+        <div className={'catched-pokemons-null'}>
+            <h3> You dont have any catched pokemons</h3>
+        </div>
+    )
+}
+else
     return (
         <div>
-             <div className={'card-wrapper'}>
-            {catchedPokemons.map((item, i) => (
-                <div key={i} className={'each-card'}>
-                    <div className={'each-card__name'}>
-
-                    {item.name}
-                    </div>
-                    <br/>
-                    <div className={'each-card__id'}>
-
-                    {item.id}
-                    </div>
-                    <img className={'general-page-images'} src={item.url}/>
-                    <button className={'card-wrapper__button'}
+                    <div className={'card-wrapper'}>
+                {catchedPokemons.map((item, i) => (
+                    <div key={i} className={'each-card'}>
+                        <h3 className={'each-card__name'}>{item.name}</h3>
+                        <br/>
+                        <div className={'each-card__id'}>{item.id}</div>
+                        <img className={'general-page-images'} src={item.url}/>
+                        <button
+                            className={'card-wrapper__button'}
                             onClick={() => releasePokemon(item.name)}
-                    >Release
-                    </button>
-                </div>
-            ))}
-        <button onClick={showMeMore}>showMeMore</button>
-             </div>
+                        >Release
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
