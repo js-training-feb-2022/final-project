@@ -8,12 +8,11 @@ import { MovieContext } from './index.js';
 const App = () => {
 
   const { movieData, setData } = React.useContext(MovieContext);
-  const [ pageNum, setPageNum ] = React.useState(18);
-
-  if(Object.keys(movieData).length === 0) return null;
+  const { pageNum, setPageNum } = React.useContext(MovieContext);
+  if(Object.keys(movieData).length === 0 ) return null;
 
   const movieCards = movieData.movies;
-  
+
   const fetchMoreData = () => {
     setTimeout(() => {
       setData(prevData => {

@@ -25,8 +25,9 @@ const Navigation = () => {
   const [watchedList, setWatchedList] = React.useState(initialWatched || []);
 
   const [movieData, setData] = React.useState({});
+  const [pageNum, setPageNum] = React.useState(18);
 
-  const baseURL = "https://imdb-api.com/en/API/Top250Movies/k_n157a4ct";
+  const baseURL = "https://imdb-api.com/en/API/Top250Movies/k_yj1kxps8";
   
   React.useEffect(function() {
     axios.get(baseURL)
@@ -45,6 +46,8 @@ const Navigation = () => {
     <MovieContext.Provider value={{
       movieData,
       setData,
+      pageNum,
+      setPageNum,
       favoritesList,
       setFavoritesList,
       watchedList,
