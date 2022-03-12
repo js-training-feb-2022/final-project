@@ -8,7 +8,7 @@ export function Header() {
       <nav className='header__nav'>
         <ul className='menu'>
           <li className='menu__item'>
-            <NavLink className='nav-link1' to='/'>
+            <NavLink className='nav-link1' to='/final-project'>
               Pokedex
             </NavLink>
           </li>

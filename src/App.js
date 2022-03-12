@@ -10,7 +10,7 @@ function App() {
     <div className='App'>
       <Header />
       <Routes>
-        <Route path='/' element={<MainContainer />} />
+        <Route path='/final-project/' element={<MainContainer />} />
         <Route path='/caught' element={<CaughtPokemonsContainer />} />
         <Route path='/pokemon/:pokemonId' element={<PokemonPageContainer />} />
       </Routes>
