@@ -1,37 +1,29 @@
 import React from 'react';
 import './App.css';
-import Card from './components/Card';
 import Header from './components/Header'
-import { MovieContext } from './util/MovieContext';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import MovieList from './components/MovieList'
+import { MovieContext } from './index.js';
 
 const App = () => {
 
-  const { movieData, setData, pageNum, setPageNum } = React.useContext(MovieContext);
+  const { movieData, setData } = React.useContext(MovieContext);
+  const [ pageNum, setPageNum ] = React.useState(18);
 
   if(Object.keys(movieData).length === 0) return null;
 
-  const movieCards = movieData.movies.map(movie => {
-    return (
-    <Card  
-    image={movie.image} 
-    key={movie.id}
-    id={movie.id} 
-    year={movie.year}
-    />
-    )
-  })
-
+  const movieCards = movieData.movies;
+  
   const fetchMoreData = () => {
     setTimeout(() => {
       setData(prevData => {
         return {
         ...prevData, 
-        movies: prevData.movies.concat(prevData.allData.items.slice(pageNum, pageNum + 6))
+        movies: prevData.movies.concat(prevData.allData.items.slice(pageNum, pageNum + 12))
         }
       });
-      setPageNum(prevNum => prevNum + 6);
-    }, 1000);
+      setPageNum(prevNum => prevNum + 12);
+    }, 500);
   }
   
   return (
@@ -44,7 +36,7 @@ const App = () => {
         loader={<h4>{movieData.movies.length === 250 ? "All movies loaded" : "Loading..."}</h4>}
       >
         <div className="cards">
-          {movieCards}
+          <MovieList collection={movieCards}/>
         </div>
       </InfiniteScroll>
     </div>

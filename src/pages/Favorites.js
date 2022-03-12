@@ -1,15 +1,16 @@
 import React from 'react';
-import Card from '../components/Card';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import { MovieContext } from '../util/MovieContext';
+import { MovieContext } from '../index.js';
+import MovieList from '../components/MovieList';
 export default function Favorites() {
 
   const { favoritesList, movieData } = React.useContext(MovieContext);
 
+  if (Object.keys(movieData).length === 0) return null;
+
   const favoriteMovies = movieData.allData.items
   .filter(movie => favoritesList.includes(movie.id))
-  .map(movie => <Card image={movie.image} year={movie.year} id={movie.id} key={movie.id}/>)
 
   return (
     <div className="appContent pagesContent">
@@ -18,7 +19,7 @@ export default function Favorites() {
     </Link>
     <h1 className="pagesHeading">❤️ Favorites ❤️</h1>
     <div className="cards">
-    {favoriteMovies}
+      <MovieList collection={favoriteMovies}/>
     </div>
     </div>
   )

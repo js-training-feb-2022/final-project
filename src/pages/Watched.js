@@ -1,23 +1,17 @@
 import React from 'react';
-import Card from '../components/Card';
-import { MovieContext } from '../util/MovieContext';
+import MovieList from '../components/MovieList';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { MovieContext } from '../index.js'
 
 export default function Watched() {
  
   const { watchedList, movieData } = React.useContext(MovieContext);
- 
+
+  if (Object.keys(movieData).length === 0) return null;
+
   const watchedMovies = movieData.allData.items
   .filter(movie => watchedList.some(elem => elem.includes(movie.id)))
-  .map(movie => 
-    <Card 
-      image={movie.image} 
-      year={movie.year} 
-      id={movie.id} 
-      key={movie.id}
-    />
-    )
 
   return (
       <div className="appContent pagesContent">
@@ -26,7 +20,7 @@ export default function Watched() {
         </Link>
         <h1 className="pagesHeading">👁️ Watched 👁️</h1>
         <div className="cards">
-          {watchedMovies}
+          <MovieList collection={watchedMovies}/>
         </div>
       </div> 
   )
