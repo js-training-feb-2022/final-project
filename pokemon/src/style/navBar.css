@@ -32,6 +32,17 @@ a {
 h3{
     font-family: CoreSansCBold, serif;
 }
+
+button{
+    border-radius: 3px;
+    border: #a7a7a7 1px solid;
+    background-color: white;
+}
+button:hover{
+    background-color: steelblue;
+    color: white;
+    transition: 1s;
+}
 /*END----------------------- main styles ------------------------*/
 
 /*----------------------- Nav Bar ------------------------*/
@@ -43,6 +54,7 @@ h3{
     background-color: #efefef;
 }
 .navbar-list__item{
+    border: 1px black solid;
     text-transform: uppercase;
     font-weight: bold;
     margin: 0 10px;
@@ -102,7 +114,6 @@ h3{
 
 .each-card {
     display: block;
-    /*flex-wrap: wrap;*/
     margin: 5px;
     justify-content: space-between;
     width: 200px;
@@ -116,11 +127,8 @@ h3{
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    /*width: 15%;*/
-    /*height: 15%;*/
     background-color: steelblue;
     color: white;
-    /*border-radius: 15%;*/
 }
 
 
@@ -136,7 +144,7 @@ h3{
 .main-page-navigation {
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position: sticky;
     z-index: 3;
     background-color: white;
@@ -151,18 +159,18 @@ h3{
 .nav-button {
     margin: 0 5px;
     height: 100%;
-    width: 300px;
+    width: 30vw;
 }
 
 /*END ----------------------- All Pokemons Page ------------------------*/
 
-/* ----------------------- Each Pokemon Page ------------------------*/
 .catched-pokemons-null{
     display: flex;
     height: 100vh;
-    border: 1px solid black;
-    margin: auto;
+    text-align: center;
+    margin: auto 20px;
 }
+/* ----------------------- Each Pokemon Page ------------------------*/
 
 .catched-pokemons-null h3{
     display: flex;
@@ -170,22 +178,9 @@ h3{
     text-transform: uppercase;
 }
 
-.each-page-image {
-    padding: 15px;
-    width: 35vw;
-}
-
-.each-page-wrapper {
-    display: block;
-    margin: auto;
-    justify-content: center;
-    max-width: 900px;
-}
-
 .each-page-content-wrapper {
     justify-content: space-between;
     display: flex;
-    /*border: 1px solid black;*/
 }
 
 .each-page-description {
@@ -195,29 +190,41 @@ h3{
 
 .each-page-props-descr {
     margin: 20px 0;
-    /*font-family: CoreSansCBold, serif;*/
 }
 
 .each-page-props-descr p{
     font-size: 25px;
     margin: 10px 0;
     font-weight: bold;
-    /*text-transform: uppercase;*/
+}
+
+.each-page-wrapper {
+    display: block;
+    margin: auto;
+    justify-content: center;
+    max-width: 900px;
 }
 
 .each-page-id {
     display: flex;
     justify-content: space-between;
-    padding: 0 50px;
+    padding: 0 15px;
     background-color: steelblue;
     color: white;
-    /*margin: 20px 0;*/
     height: 50px;
     align-items: center;
 }
 
 .each-page-image-and-id {
-    border: 1px solid black;
+    display: block;
+    margin: auto 10px auto auto;
+}
+
+.each-page-image {
+    padding: 15px;
+    width: 20vw;
+    max-width: 300px;
+    min-width: 150px;
 }
 
 .each-page__name {
@@ -226,16 +233,8 @@ h3{
     margin: 30px 0;font-size: 33px;
 }
 
-/*.each-page-abilities {*/
-/*    margin: 20px 0;*/
-/*}*/
-
-/*.each-page-types {*/
-/*    margin: 20px 0;*/
-/*}*/
-
 .wrapper-for-margin {
-    margin: 20px;
+    margin: 0 20px;
 }
 
 .not-cathced-status {
@@ -253,13 +252,30 @@ h3{
 }
 .date-of-catch{
     padding: 7px 0;
-    /*font-family: CoreSansCBold, serif;*/
 }
 .time-of-catch{
     padding: 7px 0;
-    /*font-family: CoreSansCBold, serif;*/
     font-weight: bold;
     opacity: 0.5;
 }
-
+.each-page-wrapper-button-catch{
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    align-items: center;
+    height: 40px;
+}
+.each-page-wrapper-button-catch {
+    width: 50%;
+    padding: 5px;
+}
 /* END----------------------- Each Pokemon Page ------------------------*/
+
+@media (max-width: 480px) {
+    .each-page-props-descr p{
+        font-size: 15px;
+        font-family: CoreSansCBold, serif;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+}

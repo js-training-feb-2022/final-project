@@ -2,88 +2,84 @@ import React, {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {getPokemons} from "../actions/action";
 import {Link} from "react-router-dom";
-import '../style/navBar.css'
-import {setCatchedPokemon, releasePokemons, setPokemons} from "../store/requestReducer";
+import '../style/navBar.css';
+import {setCatchedPokemon, releasePokemons} from "../store/requestReducer";
 
-const Test = ({main}) => {
-    const dispatch = useDispatch()
-    const pokemons = useSelector(state => state.pokemons.items)
-    const catchedPokemons = useSelector(state => state.pokemons.catchedPokemons)
-    const isFetching = useSelector(state => state.pokemons.isFetching)
+const MainPage = ({main}) => {
+    const dispatch = useDispatch();
+    const pokemons = useSelector(state => state.pokemons.items);
+    const catchedPokemons = useSelector(state => state.pokemons.catchedPokemons);
+    const isFetching = useSelector(state => state.pokemons.isFetching);
 
-    // еще раз пройтись по catched и что сделать? - не ясно!!
     useEffect(() => {
         if (main === 'main'){
             let res = '';
             if (catchedPokemons.length !== 0) {
                 res = catchedPokemons.map(item => {
-                    return item.name
-                })
+                    return item.name;
+                });
             }
-            return dispatch(getPokemons('', res))
+            return dispatch(getPokemons('', res));
         }
 
         if (catchedPokemons.length !== 0) {
+            console.log(pokemons)
                 return pokemons;
         }
-        dispatch(getPokemons())
-    }, [])
+        dispatch(getPokemons());
+    }, []);
 
     const nextPage = () => {
         let res = '';
         if (catchedPokemons.length !== 0) {
             res = catchedPokemons.map(item => {
-                return item.name
+                return item.name;
             })
         }
-        dispatch(getPokemons(pokemons.next.replace('https://pokeapi.co/api/v2/pokemon', ''), res))
-    }
+        dispatch(getPokemons(pokemons.next.replace('https://pokeapi.co/api/v2/pokemon', ''), res));
+    };
 
     const previosPage = () => {
         let res = '';
         if (catchedPokemons.length !== 0) {
             res = catchedPokemons.map(item => {
-                return item.name
+                return item.name;
             })
         }
-        dispatch(getPokemons(pokemons.previous.replace('https://pokeapi.co/api/v2/pokemon', ''), res))
-        console.log(pokemons)
-
-    }
+        dispatch(getPokemons(pokemons.previous.replace('https://pokeapi.co/api/v2/pokemon', ''), res));
+    };
 
     const catchPokemon = (name, id, url) => {
-        // const d = new Date() // today, now
-        // console.log(d.toLocaleDateString('pt-PT')) // DD/MM/YYYY
+        const date = new Date().toLocaleString();
+
         const pokemon = {
             name,
             id,
             url,
             isCatch: true,
-            data: new Date(),
-            // data: d.toLocaleDateString('pt-PT'),
+            date: date,
         }
         pokemons.results.map(item => {
             if (name === item.name) {
                 return item.isCatch = true;
             }
-        })
+        });
         for (let i = 0; i < catchedPokemons.length; i++) {
             if (catchedPokemons[i].name === name) {
-                return console.log('catched');
+                return name;
             }
         }
-        dispatch(setCatchedPokemon(pokemon))
-    }
+        dispatch(setCatchedPokemon(pokemon));
+    };
 
     const releasePokemon = (name) => {
         pokemons.results.map(item => {
                 if (name === item.name) {
-                    dispatch(releasePokemons(name))
+                    dispatch(releasePokemons(name));
                     return item.isCatch = false;
                 }
-            }
-        )
-    }
+            });
+    };
 
     if (!isFetching) {
         return <div>Загрузка...</div>;
@@ -91,9 +87,8 @@ const Test = ({main}) => {
         return (
             <div className={'wrapper'}>
                 <div className={'main-page-navigation'}>
-                    {/*<button onClick={showMeMore}> Show Me More</button>*/}
-                    <button className={'nav-button'} onClick={previosPage}> previos Page</button>
-                    <button className={'nav-button'} onClick={nextPage}> Next Page</button>
+                    <button className={'nav-button'} onClick={previosPage}>Previos page</button>
+                    <button className={'nav-button'} onClick={nextPage}>Next page</button>
                 </div>
                 <div className={'card-wrapper'}>
                     {
@@ -133,5 +128,5 @@ const Test = ({main}) => {
     }
 }
 
-export default Test;
+export default MainPage;
 

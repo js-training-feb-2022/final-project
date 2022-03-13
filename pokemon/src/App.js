@@ -1,9 +1,9 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import EachTest from "./components/eachTest";
+import EachPokemonPage from "./Pages/EachPokemonPage";
 import NavBar from "./components/NavBar";
-import Test from "./Pages/test";
-import CatchedPage from "./components/CatchedPage";
-import {MainPage} from "./Pages/Main";
+import MainPage from "./Pages/MainPage";
+import CatchedPage from "./Pages/CatchedPage";
+import {GeneralPage} from "./Pages/GeneralPage";
 
 
 function App() {
@@ -11,10 +11,10 @@ function App() {
       <BrowserRouter>
           <NavBar/>
           <Routes >
-              <Route path={"/"} element={<Test/>}/>
-              <Route path={":itemId"} element={<EachTest/>}/>
+              <Route path={"/"} element={<MainPage/>}/>
+              <Route path={":itemId"} element={<EachPokemonPage/>}/>
               <Route path={'/cathedPage'} element={<CatchedPage/>}/>
-              <Route path={'/main'} element={<MainPage/>}/>
+              <Route path={'/main'} element={<GeneralPage/>}/>
           </Routes>
       </BrowserRouter>
 
