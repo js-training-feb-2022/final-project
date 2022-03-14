@@ -1,14 +1,14 @@
-import React, { createContext, useState, useEffect, useReducer } from 'react'
-import axios from 'axios'
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
-export  const PokemonContext = createContext('')
+export  const PokemonContext = createContext('');
 
 export const PokemonProvider=(props)=>{
-  const [pokemonList, setPokemon] = useState([])
-  const baseUrl = 'https://pokeapi.co/api/v2/pokemon'
-  const [currentPage, setCurrentPage] = useState(baseUrl)
-  const [fetching, setFetching] = useState(true)
-  const [limit, setLimit] = useState(100) 
+  const [pokemonList, setPokemon] = useState([]);
+  const baseUrl = 'https://pokeapi.co/api/v2/pokemon';
+  const [currentPage, setCurrentPage] = useState(baseUrl);
+  const [fetching, setFetching] = useState(true);
+  const [limit, setLimit] = useState(100) ;
   
     useEffect(()=>{
       if(fetching && pokemonList.length < limit){
@@ -22,8 +22,8 @@ export const PokemonProvider=(props)=>{
           setFetching(false)
         })
       }    
-    }, [fetching])  
-    const [capturedPokemonList, setCapturedPokemon] = useState([])
+    }, [fetching]);
+    const [capturedPokemonList, setCapturedPokemon] = useState([]);
     
     const scrollHandler = (e)=>{
      
@@ -38,14 +38,14 @@ export const PokemonProvider=(props)=>{
       return function(){
         document.removeEventListener('scroll', scrollHandler)
       }
-    },[]) 
+    },[]);
     
-    let contextValue = {pokemonList, setPokemon, capturedPokemonList, setCapturedPokemon}
+    let contextValue = {pokemonList, setPokemon, capturedPokemonList, setCapturedPokemon};
  
   return (
     <PokemonContext.Provider value={contextValue}> 
       {props.children}
     </PokemonContext.Provider>
     )
-}
+};
 
