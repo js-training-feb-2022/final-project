@@ -9,6 +9,15 @@ export default function MovieList({ collection }) {
 
   return collection.map(movie => {
 
+    function imageResize(movie) {
+      let imgLink = movie.image;
+      if (imgLink.includes("original")) {
+        imgLink = imgLink.replace("/original", "").split("V1");
+        imgLink.splice(imgLink.length - 1, 1, "_UX256_CR0,3,256,352_AL.jpg");
+        return imgLink.join("V1");
+      } else return movie.image;
+    }
+
     function isLiked(id) {
       return favoritesList.includes(id);
     }
@@ -49,7 +58,7 @@ export default function MovieList({ collection }) {
 
     return (
     <Card  
-    image={movie.image} 
+    image={imageResize(movie)} 
     key={movie.id}
     id={movie.id} 
     year={movie.year}
