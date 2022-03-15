@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Pokemon-page.css'
+import PropTypes from 'prop-types';
 
 export default function PokemonPageComponent({pokemon, index, captured}) {
   return (
@@ -21,10 +22,33 @@ export default function PokemonPageComponent({pokemon, index, captured}) {
         {pokemon.types.map((item,index)=>(<li className='list-item' key={index}>{item.type.name}</li>))}
         <h3>Weight:</h3>
         <p>{pokemon.weight}</p>
-        {captured}
+        {captured 
+          ? 
+          <>
+            <h3>Status: </h3>
+            <p>captured</p>
+            <h3>Capture date:</h3>  
+            <p>{captured.date.toString()}</p>
+          </>
+          : 
+          <>
+            <h3> Status: </h3>
+            <p>not captured</p>
+          </>}
       </div>
 
     </main>
   
   )
 };
+
+PokemonPageComponent.propTypes={
+  pokemon: PropTypes.object.isRequired,
+  index: PropTypes.string.isRequired,
+}
+PokemonPageComponent.defaultProps={
+  pokemon: {
+    name: 'Some pokemon'
+  },
+  index: 0,
+}

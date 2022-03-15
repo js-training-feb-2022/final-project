@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEE,AAAA,kBAAkB,CAAA;ECDlB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,cAAc,EDDE,MAAM;EAEpB,eAAe,EAAE,MAAM;CAKxB;;AARD,AAIE,kBAJgB,CAIhB,eAAe,CAAA;EACb,KAAK,EAAE,OAAO;EACd,eAAe,EAAE,IAAI;CACtB",
+    "sources": [
+        "NotFound.scss",
+        "mixins/mixins.scss"
+    ],
+    "names": [],
+    "file": "NotFound.css"
+}

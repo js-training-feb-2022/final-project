@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 export default function PokemonCardComponent({pokemon, index}) {
   return (
@@ -9,4 +11,15 @@ export default function PokemonCardComponent({pokemon, index}) {
 
   )
 };
+PokemonCardComponent.propTypes={
+  pokemon: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired
+}
+PokemonCardComponent.defaultProps={
+  pokemon: {
+    name: 'Some pokemon'
+  },
+  index: 0,
+}
+
 

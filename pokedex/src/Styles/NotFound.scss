@@ -1,0 +1,11 @@
+@import '../Styles/mixins/mixins.scss';
+
+  .not-found-wrapper{
+    @include flex(column);
+    
+    justify-content: center;
+    .not-found-link{
+      color: #5F76A8;
+      text-decoration: none;
+    }    
+  }

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { PokemonContext } from '../Context/PokemonContext';
+import PropTypes from 'prop-types';
 
 export default function CatchButtonContainer({pokemon, index}) {
   const{capturedPokemonList, setCapturedPokemon} = useContext(PokemonContext);
@@ -16,3 +17,15 @@ export default function CatchButtonContainer({pokemon, index}) {
     <button className='catch-button' onClick={capture} disabled={isCaptured ? true :disabled}>Catch Pokemon</button>
     )
 };
+
+CatchButtonContainer.propTypes = {
+  pokemon: PropTypes.object.isRequired,
+  index : PropTypes.number.isRequired
+}
+CatchButtonContainer.defaultProps={
+  pokemon: {
+    name: 'Some pokemon'
+  },
+  index: 0,
+}
+
