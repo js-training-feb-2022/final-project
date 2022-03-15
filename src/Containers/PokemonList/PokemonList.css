@@ -1,0 +1,36 @@
+.page-toggler{
+    display: flex;
+    align-items: center;
+    margin: 20px 0 80px 0;       
+}
+
+.page-toggler * {
+    margin: 5px;
+}
+
+.page-toggler__button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.pokemons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemons h2{
+    color: cornsilk;
+}
+
+@media screen and (min-width:768px) {
+    .pokemon-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 800px;
+    }
+  }

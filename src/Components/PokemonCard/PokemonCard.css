@@ -1,0 +1,7 @@
+.PokemonCard a {
+    text-decoration: none;
+}
+
+.PokemonCard {
+    margin: 22px;
+}
