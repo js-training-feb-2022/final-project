@@ -37,7 +37,6 @@ export default function Details() {
       <div className="details">
         <img src={imageResize(movie.image)} alt="" className='poster'></img>
         <div className="details-text">
-          <p>{imageResize(movie.image)}</p>
           <p>{`Stars: ${movie.stars}`}</p>
           <p>{`Writers: ${movie.writers}`}</p>
           <p>{`IMDb Rating: ${movie.imDbRating}`}</p>
