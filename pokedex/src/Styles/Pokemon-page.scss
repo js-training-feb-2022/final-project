@@ -1,0 +1,19 @@
+@import '../Styles/mixins/mixins.scss';
+
+.pokemon-page-wrapper{
+  width: 80%;
+  font-weight: 100;
+  h3{
+    font-weight: 400;
+  }
+    .pokemon-page-text-wrapper{
+      @include flex;
+      justify-content: space-around;
+    }   
+  .pokemon-image{
+    width: 70%;
+  }
+  .list-item{
+    list-style: none;
+  }
+}

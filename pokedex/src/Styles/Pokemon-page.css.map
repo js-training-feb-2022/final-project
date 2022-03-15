@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,qBAAqB,CAAA;EACnB,KAAK,EAAE,GAAG;EACV,WAAW,EAAE,GAAG;CAcjB;;AAhBD,AAGE,qBAHmB,CAGnB,EAAE,CAAA;EACA,WAAW,EAAE,GAAG;CACjB;;AALH,AAMI,qBANiB,CAMjB,0BAA0B,CAAA;ECP5B,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,cAAc,EAJa,GAAG;EDU1B,eAAe,EAAE,YAAY;CAC9B;;AATL,AAUE,qBAVmB,CAUnB,cAAc,CAAA;EACZ,KAAK,EAAE,GAAG;CACX;;AAZH,AAaE,qBAbmB,CAanB,UAAU,CAAA;EACR,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "Pokemon-page.scss",
+        "mixins/mixins.scss"
+    ],
+    "names": [],
+    "file": "Pokemon-page.css"
+}

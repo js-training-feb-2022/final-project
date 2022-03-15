@@ -1,0 +1,22 @@
+@import '../Styles/mixins/mixins.scss';
+
+.header{
+  @include flex(column);
+  .pokemon-logo{
+    width: 50%;
+  }
+  .navigation{
+    width: 100%;
+    .links-wrapper{
+      @include flex;
+      justify-content: space-around;
+      list-style: none;   
+      .navigation-links{
+        color: #5F76A8;
+        text-decoration: none;
+        font-weight: 500;
+      }  
+    }
+  }
+
+}
