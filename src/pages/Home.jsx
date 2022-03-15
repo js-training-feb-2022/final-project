@@ -9,7 +9,7 @@ export default function Home({listItems, onAddToCatched, isItemAdded}) {
           <Card 
             name={item.name} 
             id={index+1}
-            key={item.id}
+            key={index}
             onAddCatch={(obj) => onAddToCatched(obj)}
             isBtnChange={isItemAdded}
           />  
