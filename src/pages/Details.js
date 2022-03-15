@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { MovieContext } from '../index.js';
+import imageResize from '../util/imageResize'
 import axios from 'axios';
 import './Details.css'
 
@@ -34,8 +35,9 @@ export default function Details() {
       </Link>
       <h1 className="pagesHeading">🎥 {movie.fullTitle} 🎥</h1>
       <div className="details">
-        <img src={movie.image} alt="" className='poster'></img>
+        <img src={imageResize(movie.image)} alt="" className='poster'></img>
         <div className="details-text">
+          <p>{imageResize(movie.image)}</p>
           <p>{`Stars: ${movie.stars}`}</p>
           <p>{`Writers: ${movie.writers}`}</p>
           <p>{`IMDb Rating: ${movie.imDbRating}`}</p>
