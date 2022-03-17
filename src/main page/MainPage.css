@@ -1,0 +1,18 @@
+.Main-page{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+}
+
+@media (max-width: 767.9px){
+    .Main-page{
+        width: 100vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1279.9px){
+    .Main-page{
+        width: 760px;
+    }
+
+}
