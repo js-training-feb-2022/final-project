@@ -1,0 +1,43 @@
+@import '../../mixins.scss';
+
+.App-logo {
+    font-size: 8vh;
+    @include for-phone-only {
+        font-size: 5vh;
+    }
+}
+
+.App-logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.App-header {
+    background-color: #FF5050;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 0 0 15px 15px;
+    @include for-tablet {
+        height: 10vh;
+    }
+    @include for-phone-only {
+        height: 10vh;
+        border-radius: 0;
+    }
+    
+}
+
+.caught {
+    padding: 10px 15px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.caught a {
+    color: #FF5050;
+}
