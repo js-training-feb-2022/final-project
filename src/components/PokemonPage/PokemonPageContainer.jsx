@@ -53,7 +53,7 @@ export default connect(mapStateToProps)(PokemonPageContainer);
 
 PokemonPageContainer.propTypes = {
     pokemon: PropTypes.object.isRequired,
-    isFetching: PropTypes.bool.isRequired,
+    isFetching: PropTypes.bool,
     caughtPokemons: PropTypes.array.isRequired,
-    getIdFromURL: PropTypes.func.isRequired
+    getIdFromURL: PropTypes.func
 }

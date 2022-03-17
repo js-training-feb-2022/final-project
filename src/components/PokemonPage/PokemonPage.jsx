@@ -30,12 +30,12 @@ export const PokemonPage = ({id = null, name = "", img = "", weight = "", abilit
 }
 
 PokemonPage.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
-    weight: PropTypes.number.isRequired,
-    abilities: PropTypes.array.isRequired,
-    types: PropTypes.array.isRequired,
-    isCatched: PropTypes.bool.isRequired,
-    caughtTime: PropTypes.string.isRequired
+    id: PropTypes.number,
+    name: PropTypes.string,
+    img: PropTypes.string,
+    weight: PropTypes.number,
+    abilities: PropTypes.array,
+    types: PropTypes.array,
+    isCatched: PropTypes.bool,
+    caughtTime: PropTypes.string
 }

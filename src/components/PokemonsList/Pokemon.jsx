@@ -36,7 +36,7 @@ export const Pokemon = ({id, name, thunk, caughtIds}) => {
 Pokemon.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    isDisabled: PropTypes.bool.isRequired,
+    isDisabled: PropTypes.bool,
     thunk: PropTypes.func.isRequired,
     caughtIds: PropTypes.array.isRequired
 }

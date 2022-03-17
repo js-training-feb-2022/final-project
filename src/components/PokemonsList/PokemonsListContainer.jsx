@@ -64,7 +64,7 @@ PokemonListContainer.propTypes = {
     getPokemonsListThunk: PropTypes.func.isRequired,
     caughtPokemonsThunk: PropTypes.func.isRequired,
     pokemons: PropTypes.array.isRequired,
-    isFetching: PropTypes.bool.isRequired,
+    isFetching: PropTypes.bool,
     caughtPokemons: PropTypes.array.isRequired,
-    getIdFromURL: PropTypes.func.isRequired
+    getIdFromURL: PropTypes.func
 }

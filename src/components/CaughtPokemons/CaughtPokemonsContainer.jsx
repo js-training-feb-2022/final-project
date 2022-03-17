@@ -42,6 +42,6 @@ export default connect(mapStateToProps,{ caughtPokemonsThunk })(CaughtPokemonsCo
 
 CaughtPokemonsContainer.propTypes = {
     caughtPokemons: PropTypes.array.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    getIdFromURL: PropTypes.func.isRequired
+    isLoading: PropTypes.bool,
+    getIdFromURL: PropTypes.func
 }
