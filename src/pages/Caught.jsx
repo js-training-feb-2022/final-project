@@ -1,3 +1,4 @@
+import React from "react";
 
 export default function Caught({items = []}) {
   return (
@@ -8,7 +9,6 @@ export default function Caught({items = []}) {
           <div key={obj.id} className='card flex'>
             <span className='card_id'>id: {obj.id}</span>
             <p className='card_name'>{obj.name}</p>
-            {/* <button className='card_btn' onClick={onClickCatch}>{isCatched ? `Catch` : `Release`}</button> */}
           </div>
         ))
         }      
