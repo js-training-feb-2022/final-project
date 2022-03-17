@@ -1,0 +1,6 @@
+@mixin for-tablet {
+  @media screen and (min-width: 600px) and (max-width: 1199px) { @content; }
+}
+@mixin for-phone-only {
+  @media screen and (max-width: 599px) { @content; }
+}

@@ -1,0 +1,32 @@
+@import '../../mixins.scss';
+
+.card {
+    margin-bottom: 10px;
+    width: 19%;
+
+    @include for-tablet {
+        width: 30%;
+    }
+    @include for-phone-only {
+        width: 45%;
+    }
+}
+
+.pokemonCard {
+    padding: 15px;
+    border-radius: 25px;
+    background-color: #f2f2f2;
+    margin-bottom: 15px;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.success {
+    background-color: #ddfadd;
+}
+
+.danger {
+    background-color: #fadddd;
+}
