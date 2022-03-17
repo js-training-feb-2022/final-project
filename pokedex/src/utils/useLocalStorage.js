@@ -5,7 +5,7 @@ export const useLocalStorage = () => {
   const [myPokemonsTeam, setMyPokemonsTeam] = useState(storedTeam || []);
 
   const catchPokemon = (pokemon) => {
-    pokemon.catchDate=new Date();
+    pokemon.catchDate = new Date();
     const myPokemonsTeamNew = [...myPokemonsTeam, pokemon];
     setMyPokemonsTeam(myPokemonsTeamNew);
     localStorage.setItem("myPokemonsTeam", JSON.stringify(myPokemonsTeamNew));

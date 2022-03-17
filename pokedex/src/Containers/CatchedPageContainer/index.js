@@ -1,9 +1,7 @@
 import CatchedPage from "../../Components/CatchedPage";
 
 const CatchedPageContainer = () => {
-    return(
-        <CatchedPage/>
-    )
-}
+  return <CatchedPage />;
+};
 
-export default CatchedPageContainer
+export default CatchedPageContainer;

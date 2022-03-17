@@ -28,7 +28,14 @@ const PokemonList = ({
     : pagesCount;
 
   return (
-    <Box>
+    <Box
+      sx={{
+        flexDirection: "column",
+        display: "flex",
+        justifyContent: "space-between",
+        height: "calc(100vh - 129px)",
+      }}
+    >
       <Box
         sx={{
           flexDirection: "row",
@@ -46,22 +53,19 @@ const PokemonList = ({
           />
         ))}
       </Box>
-      <Box>
-        <Pagination
-          page={page}
-          count={pages}
-          color="primary"
-          renderItem={(item) => (
-            <PaginationItem
-              component={Link}
-              to={`${currentPath}${
-                item.page === 1 ? "" : `?page=${item.page}`
-              }`}
-              {...item}
-            />
-          )}
-        />
-      </Box>
+      <Pagination
+        sx={{ margin: "0 auto" }}
+        page={page}
+        count={pages}
+        color="primary"
+        renderItem={(item) => (
+          <PaginationItem
+            component={Link}
+            to={`${currentPath}${item.page === 1 ? "" : `?page=${item.page}`}`}
+            {...item}
+          />
+        )}
+      />
     </Box>
   );
 };
