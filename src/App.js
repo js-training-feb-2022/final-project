@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -8,30 +8,31 @@ import PokePage from './pages/PokePage';
 import DataContext from './provider';
 
 function App() {
-  const [listItems, setListItems] = React.useState([]);  // загружаемые данные на гл стр
+  const [listItems, setListItems] = React.useState([]);  
   const [listCatched, setListCatched] = React.useState([]);
-  const [pokeDetails, setPokeDetails] = React.useState([]);
+  const [pokeDetails, setPokeDetails] = React.useState({});
+  const [abilityList, setAbilityList] = React.useState([]);
+  const [typesList, setTypesList] = React.useState([]);
+  const [imgList, setImgList] = React.useState([]);
   const [currentPage, setCurrentPage] = React.useState([]);  
-  const [fetching, setFetching] = React.useState(true);  //  от момента когда мы отправили запрос и до когда вернулся ответ
-  // const [totalPoki, setTotalPoki] = React.useState(0);  //  следит за окончанием массива данных на сервере
+  const [fetching, setFetching] = React.useState(true);  
   const [totalPoki, setTotalPoki] = React.useState(20); 
 
   const [pokeId, setPokeId] = React.useState(0);
   const value = { pokeId, setPokeId };
 
-  const scrollPages = (e) => {  // срабатывает при скроле стр / условие для момента когда дошли до нижнего края стр
+  const scrollPages = (e) => {  
     if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 20 ) {
-    // && listItems.length < totalPoki) {  //  НЕ ПОЛУЧИЛОСЬ НАСТРОИТЬ ОТМЕНУ ЗАПРОСОВ ПРИ ОКОНЧАНИИ МАССИВА
       setFetching(true);
     }
   }
   
-  React.useEffect(() => {  //  первый параметр функция callback, второй массив зависимостей
+  React.useEffect(() => {  
     document.addEventListener('scroll', scrollPages)
     return function() {
       document.removeEventListener('scroll', scrollPages)
     }
-  }, []);  //  если массив пустой то функция отработает один раз  
+  }, []); 
 
   React.useEffect(() => {  
     if(fetching) {
@@ -39,9 +40,7 @@ function App() {
         .then(response => {
           setListItems([...listItems, ...response.data.results]);
           setCurrentPage(prevState => prevState + 20);
-          // setTotalPoki(response.data.results.lenght);
           setTotalPoki(response.data.count);
-          console.log(response.data.results);
         })
         .finally(() => setFetching(false));
   }
@@ -52,12 +51,14 @@ function App() {
       axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then((res) => {
         if(res.data) {
           setPokeDetails(res.data);
-          console.log(res.data);
+          setAbilityList(res.data.abilities);
+          setTypesList(res.data.types);
+          setImgList(res.data.sprites.other['official-artwork'].front_default);
         }   
       })    
     };
   }, [pokeId]);
- 
+   
   const onAddToCatched = (obj) => {
     if(listCatched.find((item) => item.id === obj.id)) {
       setListCatched((prev) => prev.filter(item => item.id !== obj.id));
@@ -82,7 +83,7 @@ function App() {
           </Route>
           <Route path='/caught' element={<Caught items={listCatched} />} >
           </Route>
-          <Route path='/pokecard' element={<PokePage listDetails={pokeDetails} />} >            
+          <Route path='/pokecard' element={<PokePage listDetails={pokeDetails} abilityList={abilityList} typesList={typesList} imgList={imgList}/>} >            
           </Route>
         </Routes>     
       </DataContext.Provider>      

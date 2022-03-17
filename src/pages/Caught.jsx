@@ -10,10 +10,8 @@ export default function Caught({items = []}) {
             <span className='card_id'>id: {obj.id}</span>
             <p className='card_name'>{obj.name}</p>
           </div>
-        ))
-        }      
+        ))}      
       </div>
     </>
-
   )
 }
