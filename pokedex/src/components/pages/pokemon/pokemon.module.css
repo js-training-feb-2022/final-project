@@ -1,0 +1,107 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.name {
+    text-align: center;
+    font-size: 32px;
+    text-transform: capitalize;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: lightgray;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.stats_block {
+    margin: 1em 0;
+    padding: 12px;
+    background: #a4a4a4;
+    border-radius: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats>li {
+    flex: 1 auto;
+    flex-basis: calc(100% / 6);
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 0 3px;
+}
+
+.stat_list {
+    max-width: 100%;
+    width: inherit;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stats_title {
+    font-size: 24px;
+    padding: 8px;
+}
+
+.list_item {
+    width: 100%;
+    height: 10px;
+    margin-bottom: 2px;
+}
+
+.abilities_block {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    border-radius: 10px;
+    background: lightskyblue;
+    font-size: 24px;
+}
+
+.abilities_title {
+    color: white;
+}
+
+.abilities_value {
+    display: flex;
+    padding: 8px 0 8px 0;
+}
+
+.gender {
+    height: 25px;
+    width: auto;
+}
+
+.column {
+    padding: 16px;
+}
+
+.type_title {
+    padding-top: 16px;
+    font-size: 24px;
+}
+
+.types {
+    display: flex;
+}
+
+.info {
+    color: white;
+    padding: 8px;
+    margin: 8px 16px 0 0;
+    border-radius: 10px;
+}
+
+.loading {
+    padding-top: 16px;
+    display: flex;
+    justify-content: center;
+}
