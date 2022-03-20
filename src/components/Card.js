@@ -15,12 +15,17 @@ export default function Card({id, name, onAddCatch, isBtnChange}) {
     isBtnChange(id);
   }
 
+  // const getDate = () => new Date().toLocaleDateString();
+
   return (  
     <div className='card flex'>
       <Link to='/pokecard'>
-        <div className='' onClick={onClickShowCard}>
-          <span className='card_id'>id: {id}</span>
-          <p className='card_name'>{name}</p>         
+        <div onClick={onClickShowCard}>
+          {/* <img className="card_img-main" src={srcImg(id)}/>    */}
+          <div>
+            <span className='card_id'>id: {id}</span>
+            <p className='card_name'>{name}</p> 
+          </div>                  
         </div>
       </Link>
       <button className={isBtnChange(id) ? 'card_btn card_btn-pushed' : 'card_btn'} onClick={onClickCatch}>{isBtnChange(id) ? `Release` : `Catch`}</button>

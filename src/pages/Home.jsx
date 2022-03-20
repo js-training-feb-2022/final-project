@@ -8,7 +8,7 @@ export default function Home({listItems, onAddToCatched, isItemAdded}) {
       <div className='wrapper flex wrap'>
         {listItems.map((item, index) => (
           <Card 
-            name={item.name} 
+            name={item.name}
             id={index+1}
             key={index}
             onAddCatch={(obj) => onAddToCatched(obj)}

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Caught from './pages/Caught';
 import PokePage from './pages/PokePage';
 import DataContext from './provider';
+import Card from './components/Card';
 
 function App() {
   const [listItems, setListItems] = React.useState([]);  
@@ -70,7 +71,7 @@ function App() {
   const isItemAdded = (id) => {
     return listCatched.some((obj) => obj.id === id);
   };
-  
+
   return (
     <div className="wrapper">
       <Header />      
@@ -79,11 +80,14 @@ function App() {
       </div>      
       <DataContext.Provider value={value}>
         <Routes>
-          <Route path='/' element={<Home listItems={listItems} onAddToCatched={onAddToCatched} isItemAdded={isItemAdded}/>} >
+          <Route path='/' element={
+            <Home listItems={listItems} onAddToCatched={onAddToCatched} isItemAdded={isItemAdded} />} >
           </Route>
-          <Route path='/caught' element={<Caught items={listCatched} />} >
+          <Route path='/caught' element={
+            <Caught items={listCatched} />} >
           </Route>
-          <Route path='/pokecard' element={<PokePage listDetails={pokeDetails} abilityList={abilityList} typesList={typesList} imgList={imgList}/>} >            
+          <Route path='/pokecard' element={
+            <PokePage listDetails={pokeDetails} abilityList={abilityList} typesList={typesList} imgList={imgList}/>} >            
           </Route>
         </Routes>     
       </DataContext.Provider>      
