@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Caught from './pages/Caught';
 import PokePage from './pages/PokePage';
 import DataContext from './provider';
-import Card from './components/Card';
 
 function App() {
   const [listItems, setListItems] = React.useState([]);  
