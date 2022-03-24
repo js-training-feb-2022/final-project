@@ -1,35 +1,37 @@
 import './PokesPage.css';
 import React from 'react';
-import { useNavigate, Redirect, useLocation } from 'react-router-dom';
 import { DataContext } from '../data';
-import App from '../App';
+import {Navigate} from 'react-router-dom'
 
 export default function PokesPage() {
-  const props = useLocation();
-  const key = props.state;
-  const {listOfPokes} = React.useContext(DataContext);
-
-  const data = listOfPokes[key];
+  const {listOfPokes, pokesData} = React.useContext(DataContext);
+  if (listOfPokes.length===0){
+    return <Navigate to='/'/>
+  }
+  if (!pokesData){
+    return <p>загрузка...</p>
+    
+  }
   let listOfAbilities = '';
-  data.abilities.forEach(element => {
+  pokesData.abilities.forEach(element => {
     listOfAbilities = listOfAbilities + element + "\n";
   });
 
   let typeOfPoke = '';
-  data.types.forEach(element => {
+  pokesData.types.forEach(element => {
     typeOfPoke = typeOfPoke + element + "\n";
   });
 
-  return (
+  return ( 
     <div className="Pokes-page">
       <div className="Pokes-page__img-wrapper">
-        <img className='Pokes-page__img' src={data.imgUrl} alt=''></img>
+        <img className='Pokes-page__img' src={pokesData.imgUrl} alt=''></img>
       </div>
       <div className="Pokes-page__data">
-        <h1 className="Pokes-page__name">{data.name}</h1>
+        <h1 className="Pokes-page__name">{pokesData.name}</h1>
         <dl className="Pokes-page__property text">
             <dt>id:  </dt>
-            <dd>{data.id}</dd>
+            <dd>{pokesData.id}</dd>
         </dl>
         <dl className="Pokes-page__property text">
             <dt>способности:  </dt>
@@ -41,11 +43,11 @@ export default function PokesPage() {
         </dl>
         <dl className="Pokes-page__property text">
             <dt>вес:  </dt>
-            <dd>{data.weight}</dd>
+            <dd>{pokesData.weight}</dd>
         </dl>
         <dl className="Pokes-page__property text">
             <dt>пойман:</dt>
-            <dd>{data.caught?`${data.caughtDate.getDate()}.${data.caughtDate.getMonth()+1}.${data.caughtDate.getFullYear()}г в ${data.caughtDate.getHours()}:${data.caughtDate.getMinutes()}`:'не пойман' }</dd>
+            <dd>{pokesData.caught?`${pokesData.caughtDate.getDate()}.${pokesData.caughtDate.getMonth()+1}.${pokesData.caughtDate.getFullYear()}г в ${pokesData.caughtDate.getHours()}:${pokesData.caughtDate.getMinutes()}`:'не пойман' }</dd>
         </dl>
       </div>
     </div>

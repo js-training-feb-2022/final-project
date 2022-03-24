@@ -1,11 +1,9 @@
 .pagination{
     display: flex;
     justify-content: center;
-}
-.button:first-child{
-    margin-right: 10px;
+    flex-wrap: wrap;
 }
 .button{
-    width: 40px;
+    width: 45px;
     border: solid;
 }
