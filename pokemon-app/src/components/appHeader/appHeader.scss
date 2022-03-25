@@ -31,3 +31,12 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+    .app {
+        justify-content: center;
+        &__title {
+            display: none;
+        }
+    }
+}

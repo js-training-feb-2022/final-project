@@ -15,7 +15,6 @@
         grid-template-columns: 180px auto;
         column-gap: 30px;
         cursor: pointer;
-
     }
     &__img {
         width: 180px;
@@ -38,15 +37,12 @@
         font-size: 14px;
         line-height: 18px;
     }
-    &__btns {
-        a:nth-child(1) {
-            margin-right: 30px;
-        }
-    }
     &__static {
         padding: 40px 35px;
         position: relative;
         button {
+            position: relative;
+            left: 50%;
             margin-top: 13px;
         }
     }
@@ -64,5 +60,45 @@
         position: absolute;
         bottom: 14px;
         right: -37px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .randomchar{
+        &__static {
+            button {
+                left: 70%;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .randomchar{
+        max-width: 70%;
+        &__title {
+            position: absolute;
+            font-size: 14px;
+            left: 38%;
+            top: 8%;
+        }
+        &__static {
+            display: none;
+        }
+        &__block {
+            grid-template-columns: 100px auto;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .randomchar {
+        &__grid {
+            grid-template-columns: repeat(1, 50%);
+            transition: 0.5s;
+        }
+        &__title {
+            display: none;
+        } 
     }
 }

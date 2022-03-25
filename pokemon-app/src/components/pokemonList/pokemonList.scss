@@ -33,3 +33,30 @@
         color: #fff;
     }
 }
+
+@media (max-width: 1200px) {
+    .char{
+        &__grid{
+            grid-template-columns: repeat(4, 200px);
+            transition: 0.5s;
+        } 
+    }
+}
+
+@media (max-width: 800px) {
+    .char{
+        &__grid{
+            grid-template-columns: repeat(2, 200px);
+            transition: 0.5s;
+        } 
+    }
+}
+
+@media (max-width: 560px) {
+    .char{
+        &__grid{
+            grid-template-columns: repeat(1, 200px);
+            transition: 0.5s;
+        } 
+    }
+}
