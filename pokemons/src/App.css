@@ -1,0 +1,20 @@
+@media (prefers-reduced-motion: no-preference) {
+  .logo-rotate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    outline: none;
+    animation: App-logo-spin infinite 1s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
