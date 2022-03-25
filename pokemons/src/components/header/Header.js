@@ -1,17 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-
-const pages = ['My pokemons'];
+import'./Header.css';
 
 export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -29,11 +27,15 @@ export default function Header() {
       <Container maxwidth="xl">
         <Toolbar disableGutters>
           <Box>
-            <img  
-              src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
-              alt='logo'
-              maxWidth='100'
-            />   
+            <Link
+              to="/"
+            >
+              <img  
+                src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" 
+                alt='logo'
+                className="header-logo"
+              />  
+            </Link> 
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'flex-end' }}>
             <IconButton
@@ -64,23 +66,28 @@ export default function Header() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Link
+                to="/MyPokemons"
+                className="header-link-black"
+              >
+                My pokemons
+              </Link>
+            </MenuItem>
             </Menu>
           </Box>
-          <Box sx={{display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end'}}>
               <Button
-                key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link to="/MyPokemons">My pokemons</Link>
+                <Link
+                  to="/MyPokemons"
+                  className="header-link"
+                >
+                  My pokemons
+                </Link>
               </Button>
-            ))}
           </Box>
         </Toolbar>
       </Container>

@@ -8,8 +8,14 @@ export default function CardsList(props) {
       <Grid container spacing={2} alignItems="stretch">
       {props.pokemons.map((pokemon, index) =>{
         return (
-          <Grid item xs={12} sm={4} md={3}>
-            <Card pokemon={pokemon} key={index}/> 
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            md={3}
+            key={index}
+          >
+            <Card pokemon={ pokemon }/> 
           </Grid>            
         )
       })}
