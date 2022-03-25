@@ -1,0 +1,75 @@
+.pokeball{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset -2px 2px 0 2px #ccc;
+    animation: shake 1.25s cubic-bezier(.36,.07,.19,.97) infinite;
+    animation-play-state: paused;
+    margin: 0 auto;
+    cursor: pointer;
+    &__button {
+        position: absolute;
+        top: calc(50% - 3px);
+        left: calc(50% - 3px);
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border: 1px solid #7f8c8d;
+        border-radius: 50%;
+        z-index: 10;
+        box-shadow: 0 0 0 1px black;
+        animation: blink .5s alternate infinite;
+        animation-play-state: initial;
+    }
+    &:hover{
+        animation-play-state: running;
+    }
+    &::before, &::after {
+        content:"";
+        position: absolute;
+    }
+    &::before{
+        background: rgb(227, 33, 33);
+        width: 100%;
+        height: 50%;
+    }
+    &::after{
+        top: calc(50% - 1px);
+        width: 100%;
+        height: 2px;
+        background: #000;
+    }
+    &__disabled{
+        display: none;
+    }
+    
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0); }
+    20% { transform: translate(-10px, 0) rotate(-20deg); }
+    30% { transform: translate(10px, 0) rotate(20deg); }
+    50% { transform: translate(-10px, 0) rotate(-10deg); }
+    60% { transform: translate(10px, 0) rotate(10deg); }
+    100% { transform: translate(0, 0) rotate(0); }
+}
+@keyframes blink {
+from { background: #eee;}
+to { background: #e74c3c; }
+}
+
+.catchButton {
+    width: 50%;
+    margin: 0px auto;
+    display: block;
+    background-color: transparent;
+    border: transparent;
+}
+
+.textBtn {
+    text-align: center;
+}
+
