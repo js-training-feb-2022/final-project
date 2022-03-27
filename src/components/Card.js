@@ -21,7 +21,7 @@ export default function Card({id, name, onAddCatch, isBtnChange}) {
     <div className='card flex'>
       <Link to='/pokecard'>
         <div onClick={onClickShowCard}>
-          {/* <img className="card_img-main" src={srcImg(id)}/>    */}
+          <img className="card_img-main" src={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + (id) + '.png'}/>   
           <div>
             <span className='card_id'>id: {id}</span>
             <p className='card_name'>{name}</p> 

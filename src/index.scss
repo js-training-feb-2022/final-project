@@ -166,6 +166,12 @@ a {
     }
   }
 
+  &_id {
+    &:hover {
+      color: #339933;
+    }
+  }
+
   &_btn {
     text-align: center;
     font-size: 18px;
