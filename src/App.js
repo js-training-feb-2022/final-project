@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -14,34 +14,70 @@ function App() {
   const [abilityList, setAbilityList] = React.useState([]);
   const [typesList, setTypesList] = React.useState([]);
   const [imgList, setImgList] = React.useState([]);
-  const [currentPage, setCurrentPage] = React.useState([]);  
+  const [currentPage, setCurrentPage] = React.useState(1);  // []  
   const [fetching, setFetching] = React.useState(true);  
-  const [totalPoki, setTotalPoki] = React.useState(20); 
+  const [totalPoki, setTotalPoki] = React.useState(20);
+
+  ////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////
+  // const [photos, setPhotos] = React.useState([]);
+  // const [currentPagenew, setCurrentPagenew] = React.useState(1);
+  // const [fetchingnew, setFetchingnew] = React.useState(true);
+  // const [totalCount, setTotalCount] = React.useState(0);
+
+  // React.useEffect(() => {
+  //   if(fetching) {
+  //     axios.get(`https://pokeapi.co/api/v2/pokemon?_limit=40&_page=${currentPagenew}`)
+  //     .then(response => {
+  //       setPhotos([...photos, ...response.data.results]);
+  //       setCurrentPagenew(prevState => prevState + 1);
+  //       setTotalCount(response.data.count);
+  //     })
+  //     .finally(() => setFetchingnew(false));
+  //   }
+  // }, [fetchingnew]);
+
+  // React.useEffect(() => {
+  //   document.addEventListener('scroll', scrollHandler);
+  //   return function () {
+  //     document.removeEventListener('scroll',scrollHandler);
+  //   }
+  // }, []);
+
+  // const scrollHandler = (e) => {
+  //   if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 20 
+  //   && photos.length < totalCount) {
+  //     setFetchingnew(true);
+  //   }
+  // }
+  /////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////
 
   const [pokeId, setPokeId] = React.useState(0);
   const value = { pokeId, setPokeId };
 
   const scrollPages = (e) => {  
-    if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 20 ) {
+    if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 20 
+    && listItems.length < totalPoki) {
       setFetching(true);
     }
   }
   
   React.useEffect(() => {  
-    document.addEventListener('scroll', scrollPages)
+    document.addEventListener('scroll', scrollPages);
     return function() {
-      document.removeEventListener('scroll', scrollPages)
+      document.removeEventListener('scroll', scrollPages);
     }
   }, []); 
 
   React.useEffect(() => {  
     if(fetching) {
-      // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${currentPage}`)  
-      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=898`)  
+      // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=898`)  
+      axios.get(`https://pokeapi.co/api/v2/pokemon?_limit=40&_page=${currentPage}`)  
         .then(response => {
           setListItems([...listItems, ...response.data.results]);
-          setCurrentPage(prevState => prevState + 20);
-          setTotalPoki(response.data.count);
+          setCurrentPage(prevState => prevState + 1);  /// +20
+          setTotalPoki(response.data.count);          
         })
         .finally(() => setFetching(false));
   }
