@@ -36,7 +36,8 @@ function App() {
 
   React.useEffect(() => {  
     if(fetching) {
-      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${currentPage}`)  
+      // axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${currentPage}`)  
+      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=898`)  
         .then(response => {
           setListItems([...listItems, ...response.data.results]);
           setCurrentPage(prevState => prevState + 20);
