@@ -14,6 +14,7 @@ export default function Details() {
 
   const [ movie, setMovie ] = React.useState(null);
   const { watchedList } = React.useContext(MovieContext);
+  const [loading, setLoading] = React.useState(true)
 
   React.useEffect(function() {
     axios.get(profileURL)
@@ -28,22 +29,27 @@ export default function Details() {
   
   const getWatchedDate = (id) => watchedList.filter(elem => elem.includes(id))[0][1]; 
 
+  const loadHandler = () => {
+    setLoading(false);
+  }
+
   return (
     <div className="appContent pagesContent">
       <Link to="/" className='link'>
         <Button variant="contained" color="secondary" className="homeButton">Home</Button>
       </Link>
       <h1 className="pagesHeading">🎥 {movie.fullTitle} 🎥</h1>
-      <div className="details">
-        <img src={imageResize(movie.image)} alt="" className='poster'></img>
+      <div className={`loader ${loading ? "" : "hide"}`}></div>
+      <div className={`details ${loading ? "hide" : ""}`}>
+        <img src={imageResize(movie.image)} alt="" className='poster' onLoad={loadHandler} ></img>
         <div className="details-text">
           <p>{`Stars: ${movie.stars}`}</p>
           <p>{`Writers: ${movie.writers}`}</p>
           <p>{`IMDb Rating: ${movie.imDbRating}`}</p>
           <p>{`Year: ${movie.year}`}</p>
           <p>{ isWatched(detailsId) ? `Watched on ${getWatchedDate(detailsId)}` : "Not watched yet" }</p>
-        </div>
-      </div>
+        </div> 
+      </div> 
     </div>
   )
 }
