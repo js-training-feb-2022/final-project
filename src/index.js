@@ -10,6 +10,7 @@ import {
 import Favorites from './pages/Favorites';
 import Watched from './pages/Watched';
 import Details from './pages/Details';
+import SearchResults from './pages/SearchResults';
 import axios from 'axios';
 
 export const MovieContext = React.createContext();
@@ -57,7 +58,8 @@ const Navigation = () => {
         <Route exact path="/" element={<App/>} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/watched" element={<Watched/>} />
-        <Route path="/:id" element={<Details />} />
+        <Route path="/search/:searchPhrase" element={<SearchResults/>} />
+        <Route path="/:detailsId" element={<Details />} />
       </Routes>
     </MovieContext.Provider>   
   </Router>

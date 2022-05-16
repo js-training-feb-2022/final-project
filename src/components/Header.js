@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import './Header.css'
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar'
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
         <LocalMoviesIcon fontSize="large"/>
         <h1>IMDB TOP 250 CHALLENGE</h1>
       </div>
+      <SearchBar />
       <div className="header-buttons">
         <Link to="/watched" textDecoration="none" className="link"><Button variant="contained">see progress</Button></Link>
         <Link to="/favorites" className="link"><Button variant="contained">favorites ❤️</Button></Link>

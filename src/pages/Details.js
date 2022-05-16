@@ -7,10 +7,9 @@ import axios from 'axios';
 import './Details.css'
 
 export default function Details() {
-  let params = useParams();
-  let detailsId = params.id;
+  const { detailsId } = useParams();
 
-  const profileURL = `https://imdb-api.com/en/API/Title/k_yj1kxps8/${params.id}`;
+  const profileURL = `https://imdb-api.com/en/API/Title/k_yj1kxps8/${detailsId}`;
 
   const [ movie, setMovie ] = React.useState(null);
   const { watchedList } = React.useContext(MovieContext);

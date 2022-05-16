@@ -24,10 +24,10 @@ const App = () => {
       setPageNum(prevNum => prevNum + 12);
     }, 500);
   }
-  
+
   return (
     <div className="appContent">
-      <Header />
+      <Header />      
       <InfiniteScroll
         dataLength={movieData.movies.length}
         next={fetchMoreData}

@@ -20,7 +20,7 @@ export default function Card({ image, year, id, isLiked, isWatched, likeToggle, 
   let [isLoaded, setisLoaded] = React.useState(false);
 
   return (
-    <div className="card">
+    <div className={`card ${isLoaded ? "" : "hide"}`}>
     <Link to={`/${id}`}>
       <img 
         src={image} 
@@ -29,35 +29,26 @@ export default function Card({ image, year, id, isLiked, isWatched, likeToggle, 
         id={id} onLoad={() => setisLoaded(true)}
       />
     </Link>
-    {
-      isLoaded && 
-      (
-        <>
-          <Chip 
-            className="year" 
-            color="primary" 
-            label={year}>
-          </Chip>      
-          <span 
-            className="like" 
-            onClick={likeToggle} 
-            id={id}>{ isLiked(id) ? '❤️' : '🤍' }
-          </span>
-          <span className="watched">
-            <Button 
-              variant="contained" 
-              size="small" 
-              fontSize="0.5rem" 
-              color={isWatched(id) ? "success" : "secondary"} 
-              onClick={watchedToggle} 
-              id={id}>{ isWatched(id) ? 'watched ✔️' : 'to watch'}
-            </Button>
-          </span>
-        </>
-        
-      )
-    }
-   
+      <Chip 
+        className="year" 
+        color="primary" 
+        label={year}>
+      </Chip>      
+      <span 
+        className="like" 
+        onClick={likeToggle} 
+        id={id}>{ isLiked(id) ? '❤️' : '🤍' }
+      </span>
+      <span className="watched">
+        <Button 
+          variant="contained" 
+          size="small" 
+          fontSize="0.5rem" 
+          color={isWatched(id) ? "success" : "secondary"} 
+          onClick={watchedToggle} 
+          id={id}>{ isWatched(id) ? 'watched ✔️' : 'to watch'}
+        </Button>
+      </span>   
   </div>
   );
 }
