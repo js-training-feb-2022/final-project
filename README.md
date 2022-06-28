@@ -7,8 +7,8 @@ ____
 * `react`
 * `react-dom`
 * `react-router-dom`
-* 'axios'
+* `axios`
 * `prop-types`
-* 'Sass'
+* `Sass`
 ____
 Запуск приложения "npm start"ю
