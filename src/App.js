@@ -34,9 +34,7 @@ const App = () => {
         hasMore={true}
         loader={<h4>{movieData.movies.length === 250 ? "All movies loaded" : "Loading..."}</h4>}
       >
-        <div className="cards">
-          <MovieList collection={movieCards}/>
-        </div>
+        <MovieList collection={movieCards}/>
       </InfiniteScroll>
     </div>
   );

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { MovieContext } from '../index.js';
 import MovieList from '../components/MovieList';
+
 export default function Favorites() {
 
   const { favoritesList, movieData } = React.useContext(MovieContext);
@@ -18,9 +19,7 @@ export default function Favorites() {
           <Button variant="contained" color="secondary">Home</Button>
     </Link>
     <h1 className="pagesHeading">❤️ Favorites ❤️</h1>
-    <div className="cards">
-      <MovieList collection={favoriteMovies}/>
-    </div>
+    <MovieList collection={favoriteMovies}/>
     </div>
   )
 }

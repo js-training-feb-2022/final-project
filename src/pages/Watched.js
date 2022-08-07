@@ -19,9 +19,7 @@ export default function Watched() {
           <Button variant="contained" color="secondary" className="homeButton">Home</Button>
         </Link>
         <h1 className="pagesHeading">👁️ Watched 👁️</h1>
-        <div className="cards">
-          <MovieList collection={watchedMovies}/>
-        </div>
-      </div> 
+        <MovieList collection={watchedMovies}/>
+        </div> 
   )
 }

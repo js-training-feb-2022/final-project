@@ -3,19 +3,10 @@ import './Card.css'
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import { Link } from 'react-router-dom';
-import { MovieContext } from '../index';
 
-export default function Card({ image, year, id, isLiked, isWatched, likeToggle, watchedToggle }) {
+const Card = React.memo(function Card({ image, year, id, isLiked, isWatched, }) {
 
-  const { favoritesList, watchedList } = React.useContext(MovieContext);
-
-  React.useEffect(() => {
-    localStorage.setItem('favoritesList', JSON.stringify(favoritesList));
-  }, [favoritesList]);
-
-  React.useEffect(() => {
-    localStorage.setItem('watchedList', JSON.stringify(watchedList));
-  }, [watchedList]);
+  console.log('card rendered')
 
   let [isLoaded, setisLoaded] = React.useState(false);
 
@@ -36,19 +27,20 @@ export default function Card({ image, year, id, isLiked, isWatched, likeToggle, 
       </Chip>      
       <span 
         className="like" 
-        onClick={likeToggle} 
-        id={id}>{ isLiked(id) ? '❤️' : '🤍' }
+        id={id}>{ isLiked ? '❤️' : '🤍' }
       </span>
-      <span className="watched">
+      <div className="watched">
         <Button 
+          className="watched"
           variant="contained" 
           size="small" 
           fontSize="0.5rem" 
-          color={isWatched(id) ? "success" : "secondary"} 
-          onClick={watchedToggle} 
-          id={id}>{ isWatched(id) ? 'watched ✔️' : 'to watch'}
+          color={isWatched ? "success" : "secondary"} 
+          id={id}>{ isWatched ? 'watched ✔️' : 'to watch'}
         </Button>
-      </span>   
+      </div>   
   </div>
   );
-}
+});
+
+export default Card;

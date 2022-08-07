@@ -19,9 +19,7 @@ export default function SearchResults() {
           <Button variant="contained" color="secondary">Home</Button>
     </Link>
     <h1 className="pagesHeading">Search Results</h1>
-    <div className="cards">
-      <MovieList collection={foundMovies}/>
-    </div>
+    <MovieList collection={foundMovies}/>
     </div>
   )
 }

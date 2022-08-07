@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css'
@@ -7,11 +7,14 @@ import {
   Routes,
   Route, 
 } from 'react-router-dom';
-import Favorites from './pages/Favorites';
-import Watched from './pages/Watched';
+// import Favorites from './pages/Favorites';
+// import Watched from './pages/Watched';
 import Details from './pages/Details';
 import SearchResults from './pages/SearchResults';
 import axios from 'axios';
+
+const Favorites = React.lazy(() => import('./pages/Favorites'));
+const Watched = React.lazy(() => import('./pages/Watched'));
 
 export const MovieContext = React.createContext();
 
@@ -56,8 +59,16 @@ const Navigation = () => {
     }}>
       <Routes>
         <Route exact path="/" element={<App/>} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/watched" element={<Watched/>} />
+        <Route path="/favorites" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <Favorites/>
+          </Suspense>
+        }/>
+        <Route path="/watched" element={
+          <Suspense fallback={<div>Loading...</div>}>
+            <Watched/>
+          </Suspense>
+        }/>
         <Route path="/search/:searchPhrase" element={<SearchResults/>} />
         <Route path="/:detailsId" element={<Details />} />
       </Routes>
