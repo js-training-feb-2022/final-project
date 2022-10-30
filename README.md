@@ -5,7 +5,10 @@ App displays top 250 movies and allows the user to track watched movies and favo
 localStorage is used to allow storing watched/favorites movies.
 
 Приложение IMDB-250 Challenge
-Отображает топ-250 рейтинга ImDB, позволяет пользователю отмечать понравившиеся и просмотренные фильмы (дата просмотра сохраняется). Используется localStorage для сохранения данных между сессиями.
+
+Отображает топ-250 рейтинга ImDB, позволяет пользователю отмечать понравившиеся и просмотренные фильмы (дата просмотра сохраняется). 
+
+Используется localStorage для сохранения данных между сессиями.
 
 ![image](https://user-images.githubusercontent.com/56584077/198906166-4765d174-c4dc-4b6d-a9e9-8dc1231f9116.png)
 ![image](https://user-images.githubusercontent.com/56584077/198906194-1377612f-1afd-4648-b99b-f01b0be820d4.png)
