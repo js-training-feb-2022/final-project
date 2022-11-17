@@ -1,4 +1,4 @@
-App published at https://bananazigzags.github.io/final-project/
+App published at https://bananazigzags.github.io/movie-challenge/
 
 IMDB 250 Challenge: Watch top IMDB 250 movies!
 App displays top 250 movies and allows the user to track watched movies and favorites.
@@ -6,7 +6,7 @@ localStorage is used to allow storing watched/favorites movies.
 
 Приложение IMDB-250 Challenge
 
-Отображает топ-250 рейтинга ImDB, позволяет пользователю отмечать понравившиеся и просмотренные фильмы, просматривать информацию о фильме, включая дату просмотра. 
+Отображает топ-250 рейтинга ImDB, позволяет пользователю отмечать понравившиеся и просмотренные фильмы, просматривать информацию о фильме, включая дату просмотра.
 
 Используется localStorage для сохранения данных между сессиями.
 

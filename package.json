@@ -1,7 +1,7 @@
 {
-  "name": "final-project",
+  "name": "movie-challenge",
   "version": "0.1.0",
-  "homepage": "https://bananazigzags.github.io/final-project/",
+  "homepage": "https://bananazigzags.github.io/movie-challenge",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.8.1",
