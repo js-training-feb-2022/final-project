@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.appContent {
+  width: 90%;
+  margin: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+
+.pagesHeading {
+  margin-bottom: 30px;
+  font-family: "Oswald";
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cards {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.homeButton {
+  margin: 50px;
+}
